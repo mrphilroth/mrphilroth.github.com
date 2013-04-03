@@ -1,4 +1,4 @@
 mrphilroth.github.com
 =====================
 
-Public webpage
+This is my personal webpage hosted by github.
