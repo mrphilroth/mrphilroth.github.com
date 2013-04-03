@@ -1,6 +1,49 @@
----
-theme :
-  name : twitter
----
-{% include JB/setup %}
-{% include themes/twitter/default.html %}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>{{ page.title }}</title>
+   <meta name="author" content="Phil Roth" />
+   <meta name="readability-verification" content="QCzSs992GxmRYRKVpPeZ6LE2tS8aYKxsSSQKV8YM"/>
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+
+</head>
+<body>
+
+<div class="site">
+  <div class="title">
+    <a href="/">Phil Roth</a>
+    <a class="extra" href="/">home</a>
+  </div>
+  
+  {{ content }}
+  
+  <div class="footer">
+    <div class="contact">
+      <p>
+        Phil Roth<br />
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="http://github.com/mrphilroth/">github.com/mrphilroth</a><br />
+        <a href="http://twitter.com/mrphilroth/">twitter.com/mrphilroth</a><br />
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <p>
+	  Created using <a href="http://github.com/mojombo/jekyll">jekyll</a><br />
+	  Thanks to <a href="http://tom.preston-werner.com/">Tom Preston-Werner</a> for the layout<br />
+      </p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
