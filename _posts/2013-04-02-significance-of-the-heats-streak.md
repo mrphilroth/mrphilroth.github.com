@@ -19,10 +19,10 @@ to a model.
 
 Using a [least squares](http://en.wikipedia.org/wiki/Least_squares)
 fit, I matched most of the data to the exponential decay shown in
-red. The best fit parameters describe model a distribution of streaks
-where each team has about a 50% chance to win an individual game
-(48.8% to be exact). This makes lot of intuitive sense, but that
-situation doesn't accuratly describe the long tail.
+red. The best fit parameters model a distribution of streaks where
+each team has about a 50% chance to win an individual game (48.8% to
+be exact). This makes lot of intuitive sense, but that situation
+doesn't accuratly describe the long tail.
 
 In order to model the tail, I subtracted the first model from the data
 and did a linear least squares fit on the logarithm of the remaining
