@@ -12,7 +12,7 @@ this plot:
 For each number of games, this plot shows how many times an NBA team
 has had a winning streak of that length. Since there are so many more
 streaks with a low number of games, the differences between all the
-long streaks don't show up so well. We can fix that:
+long streaks don't show up so well. That can be fixed:
 
 ![Streak Histogram](http://dl.dropbox.com/u/7474408/hist.png)
 
@@ -50,10 +50,9 @@ describe the full data (with the exception of the 71-72 Lakers and
 12-13 Heat) quite well. The paramters for the second fit describe a
 model where teams have a 72.8% chance to win individual games. Teams
 that have alaready won a couple games in a row are probably better
-than the average team. So we would expect their chances of winning
+than the average team. So one would expect their chances of winning
 subsequent games to be higher than 50%. This second model captures
 that.
-
 
 
 
