@@ -32,7 +32,7 @@ their streaks are, the data must be fit to a model.
 For events with a random outcome, the number of streaks that will
 occur can be modeled by an exponential decay. Using the [method of
 least squares](http://en.wikipedia.org/wiki/Least_squares), I found
-the paramters for that exponential decay that best fits the data. The
+the parameters for that exponential decay that best fits the data. The
 result is shown in red and describes a model where each team has about
 a 50% chance to win an individual game (48.8% to be exact). This makes
 lot of intuitive sense, but that situation doesn't accuratly describe
@@ -47,7 +47,7 @@ in blue in the next plot.
 
 Now, the sum of both these models is shown in green and seems to
 describe the full data (with the exception of the 71-72 Lakers and
-12-13 Heat) quite well. The paramters for the second fit describe a
+12-13 Heat) quite well. The parameters for the second fit describe a
 model where teams have a 72.8% chance to win individual games. Teams
 that have alaready won a couple games in a row are probably better
 than the average team. So one would expect their chances of winning
