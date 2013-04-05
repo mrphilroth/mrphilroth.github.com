@@ -59,7 +59,7 @@ function](http://en.wikipedia.org/wiki/Probability_distribution). Once
 normalized, it assigns a probability to each possible streak
 length. Of course the results it produces will only be as good as the
 little model I've fit to the data, but it's probably good enough to
-provide a good estimate.
+provide a reasonable estimate.
 
 So what are the results? The probability that a streak will be 27
 games or longer is 0.019%. 33 games or longer is 0.0028%. That's
