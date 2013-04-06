@@ -17,8 +17,8 @@ long streaks don't show up so well. That can be fixed:
 ![Streak Histogram](http://dl.dropbox.com/u/7474408/hist.png)
 
 Now, the y-axis is on a logarithmic scale. This allows the streaks
-with single occurances (22, 27, 33) to show up clearly along with the
-single and double game winning streaks (with 13020 and 6080 occurances
+with single occurences (22, 27, 33) to show up clearly along with the
+single and double game winning streaks (with 13020 and 6080 occurences
 respectively).
 
 The 1971-72 Lakers and 2012-13 Heat are very noticable as
