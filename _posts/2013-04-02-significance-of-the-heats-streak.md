@@ -17,11 +17,11 @@ long streaks don't show up so well. That can be fixed:
 ![Streak Histogram](http://dl.dropbox.com/u/7474408/hist.png)
 
 Now, the y-axis is on a logarithmic scale. This allows the streaks
-with single occurences (22, 27, 33) to show up clearly along with the
-single and double game winning streaks (with 13020 and 6080 occurences
+with single occurrences (22, 27, 33) to show up clearly along with the
+single and double game winning streaks (with 13020 and 6080 occurrences
 respectively).
 
-The 1971-72 Lakers and 2012-13 Heat are very noticable as
+The 1971-72 Lakers and 2012-13 Heat are very noticeable as
 outliers. Even the 22 game winning streak by the 2007-8 Rockets, while
 very impressive, fits in with the general trend. The Heat and Lakers
 are just way out there. In order to quantify just how implausible
@@ -35,7 +35,7 @@ least squares](http://en.wikipedia.org/wiki/Least_squares), I found
 the parameters for that exponential decay that best fits the data. The
 result is shown in red and describes a model where each team has about
 a 50% chance to win an individual game (48.8% to be exact). This makes
-lot of intuitive sense, but that situation doesn't accuratly describe
+lot of intuitive sense, but that situation doesn't accurately describe
 the long tail of streaks with many games.
 
 In order to model the tail, I subtracted the exponential model in red
