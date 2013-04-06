@@ -4,8 +4,8 @@ title: "Significance of the Heat's 27 Game Win Streak"
 ---
 
 While watching the Heat win 27 games in a row, I started to wonder
-exactly how unlikely this streak was. Being a nerd, I put together
-this plot:
+exactly how unlikely this streak was. Being a nerd, I gathered the
+data and put together this plot:
 
 ![Streak Histogram](http://dl.dropbox.com/u/7474408/histlin.png)
 
@@ -47,7 +47,9 @@ in blue in the next plot.
 
 Now, the sum of both these models is shown in green and seems to
 describe the full data (with the exception of the 71-72 Lakers and
-12-13 Heat) quite well. The parameters for the second fit describe a
+12-13 Heat) quite well. The sum of the red and blue lines will look
+weird on a log-scale plot. The two lines won't stack on top of each
+other as in a normal plot. The parameters for the second fit describe a
 model where teams have a 72.8% chance to win individual games. Teams
 that have alaready won a couple games in a row are probably better
 than the average team. So one would expect their chances of winning
@@ -62,6 +64,13 @@ little model I've fit to the data, but it's probably good enough to
 provide a reasonable estimate.
 
 So what are the results? The probability that a streak will be 27
-games or longer is 0.019%. 33 games or longer is 0.0028%. That's
-pretty unlikely.
+games or longer is 0.019% (or 190 times per million attempts). 33
+games or longer is 0.0028%. (or 28 times per million attempts). There
+are on average 529 win streaks per season. That means there's a 9.6%
+chance that any season will have a 27 game win streak or more. And
+there's a 1.5% chance that any season will have a 33 game win streak
+or longer.
+
+In summary, the Heat's (and even more so the Laker's) streak was
+pretty unlikely. Pretty unlikely indeed.
 
