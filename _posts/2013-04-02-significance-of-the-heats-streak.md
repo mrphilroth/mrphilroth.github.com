@@ -47,14 +47,13 @@ in blue in the next plot.
 
 Now, the sum of both these models is shown in green and seems to
 describe the full data (with the exception of the 71-72 Lakers and
-12-13 Heat) quite well. The sum of the red and blue lines will look
-weird on a log-scale plot. The two lines won't stack on top of each
-other as in a normal plot. The parameters for the second fit describe a
-model where teams have a 72.8% chance to win individual games. Teams
-that have alaready won a couple games in a row are probably better
-than the average team. So one would expect their chances of winning
-subsequent games to be higher than 50%. This second model captures
-that.
+12-13 Heat) quite well. As you can see, in a log-scale plot the sum of
+two lines won't stack as intuitively as in a normal plot. The
+parameters for the second fit describe a model where teams have a
+72.8% chance to win individual games. Teams that have alaready won a
+couple games in a row are probably better than the average team. So
+one would expect their chances of winning subsequent games to be
+higher than 50%. This second model captures that.
 
 The combined model can now be treated as a [probability distribution
 function](http://en.wikipedia.org/wiki/Probability_distribution). Once
