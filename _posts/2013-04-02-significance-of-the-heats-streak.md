@@ -50,7 +50,7 @@ describe the full data (with the exception of the 71-72 Lakers and
 12-13 Heat) quite well. As you can see, in a log-scale plot the sum of
 two lines won't stack as intuitively as in a normal plot. The
 parameters for the second fit describe a model where teams have a
-72.8% chance to win individual games. Teams that have alaready won a
+72.8% chance to win individual games. Teams that have already won a
 couple games in a row are probably better than the average team. So
 one would expect their chances of winning subsequent games to be
 higher than 50%. This second model captures that.
