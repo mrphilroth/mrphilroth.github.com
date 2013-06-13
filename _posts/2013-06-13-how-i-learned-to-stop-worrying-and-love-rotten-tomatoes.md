@@ -62,7 +62,7 @@ the fit is flatter.
 
 Another interesting thing to look at are the outliers. Most of them
 are obscure movies that have a low number of reviews but not
-all. Here's a list of all the movies where the actual Metacritic score
+all. Here's a list the ten movies where the actual Metacritic score
 is farthest away from the fit prediction (the absolute farthest is
 listed first):
 
