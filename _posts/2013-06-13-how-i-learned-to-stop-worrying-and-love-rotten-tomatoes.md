@@ -36,7 +36,7 @@ them.
 So, how do the results of those two approaches compare? Well, I took a
 look:
 
-![Movie Ratings Scatter Plot](https://dl.dropboxusercontent.com/u/7474408/movieratings_scatter.png)
+![Rotten Tomatoes versus Metacritic](https://dl.dropboxusercontent.com/u/7474408/movieratings_scatter.png)
 
 In this plot, a dot shows each movie that has a corresponding Rotten
 Tomatoes and Metacritic score. The dots turn red as more movies pile
