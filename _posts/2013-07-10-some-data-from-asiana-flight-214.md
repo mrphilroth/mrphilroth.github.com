@@ -45,7 +45,7 @@ that landed without assistance from the ILS were more consistent and
 safer than those that used it. But I'd be hesitant to jump to that
 conclusion without knowing a lot more about what goes in to landing a
 Boeing 777. I look forward to the NTSB's final report about what
-events lead to this incident. In the meantime, it sure was fun to play
+events led to this incident. In the meantime, it sure was fun to play
 with this little bit of data that's publicly available.
 
 (Thanks to flightaware.com for the data and my brother for the idea
