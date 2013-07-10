@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Asiana Flight 214"
+title: "Some Data From Asiana Flight 214"
 ---
 
 I was intrigued by the plot shown at Business Insider that displays
@@ -43,8 +43,8 @@ Here, the July 6th flight clearly stands out.
 Based only on these charts, I might guess that the Asiana Flight 214s
 that landed without assistance from the ILS were more consistent and
 safer than those that used it. But I'd be hesitant to jump to that
-conclusion based on this small amount of data. I look forward to the
-NTSB's final report about what events lead to this incident. In the
-meantime, it sure was fun to play with this little sliver of data
-that's publicly available.
+conclusion without knowing a lot more about what goes in to landing a
+Boeing 777. I look forward to the NTSB's final report about what
+events lead to this incident. In the meantime, it sure was fun to play
+with this little bit of data that's publicly available.
 
