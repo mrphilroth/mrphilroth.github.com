@@ -48,5 +48,5 @@ Boeing 777. I look forward to the NTSB's final report about what
 events led to this incident. In the meantime, it sure was fun to play
 with this little bit of data that's publicly available.
 
-(Thanks to flightaware.com for the data and my brother for the idea
-for this post.)
+(Thanks to [flightaware.com](http://flightaware.com) for the data and my
+[brother](https://github.com/imr) for the idea for this post.)
