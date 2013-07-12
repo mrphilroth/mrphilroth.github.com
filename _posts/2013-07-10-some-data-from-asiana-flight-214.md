@@ -50,3 +50,8 @@ with this little bit of data that's publicly available.
 
 (Thanks to [flightaware.com](http://flightaware.com) for the data and my
 [brother](https://github.com/imr) for the idea for this post.)
+
+Edit: Business Insider picked up my post
+[here](http://www.businessinsider.com/asiana-flight-214-speed-chart-2013-7)!
+I think this is a good point for us to stop linking back and forth.
+
