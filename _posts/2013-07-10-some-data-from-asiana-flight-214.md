@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Some Data From Asiana Flight 214"
+category: data
 ---
 
 I was intrigued by the plot shown at Business Insider that displays

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Significance of the Heat's 27 Game Win Streak"
+category: sports
 ---
 
 While watching the Heat win 27 games in a row, I started to wonder

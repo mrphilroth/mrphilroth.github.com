@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "How I Learned to Stop Worrying and Love Rotten Tomatoes"
+category: data
 ---
 
 Maybe not love it... but use it.
