@@ -30,9 +30,9 @@ scale from 0-100. Their final score is an average of those scores that
 favors the more influential reviewers.
 
 To me, when Rotten Tomatoes reduces each review to either positive or
-they are discarding a lot of information. Metacritic is taking a more
-scientific approach that uses all the information that's available to
-them.
+negative they are discarding a lot of information. Metacritic is
+taking a more scientific approach that uses all the information that's
+available to them.
 
 So, how do the results of those two approaches compare? Well, I took a
 look:
