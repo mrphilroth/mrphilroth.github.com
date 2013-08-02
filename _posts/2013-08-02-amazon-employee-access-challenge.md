@@ -5,7 +5,7 @@ category: competition
 competition: true
 ---
 
-[code](https://github.com/mrphilroth/kaggle-amazonaccess) [leaderboard](http://www.kaggle.com/c/amazon-employee-access-challenge/leaderboard)
+[code](https://github.com/mrphilroth/kaggle-amazonaccess) [leaderboard](http://www.kaggle.com/c/amazon-employee-access-challenge/leaderboard)  [profile](http://www.kaggle.com/users/25160/proth)
 
 Amazon was interested in automating the process of granting access to
 various computer resources to its employees. They released a bunch of

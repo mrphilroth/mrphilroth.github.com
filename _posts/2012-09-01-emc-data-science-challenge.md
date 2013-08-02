@@ -5,7 +5,7 @@ category: competition
 competition: true
 ---
 
-[code](https://github.com/mrphilroth/kaggle-emc) [leaderboard](http://www.kaggle.com/c/emc-data-science/leaderboard)
+[code](https://github.com/mrphilroth/kaggle-emc) [leaderboard](http://www.kaggle.com/c/emc-data-science/leaderboard) [profile](http://www.kaggle.com/users/25160/proth)
 
 In this competition, EMC showed a Calibrated Naive Bayes benchmark on
 the leaderboard but did not provide example code for how to generate

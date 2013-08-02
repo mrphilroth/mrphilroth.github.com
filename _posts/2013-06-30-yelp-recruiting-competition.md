@@ -5,7 +5,7 @@ category: competition
 competition: true
 ---
 
-[code](https://github.com/mrphilroth/kaggle-yelp) [leaderboard](http://www.kaggle.com/c/yelp-recruiting/leaderboard)
+[code](https://github.com/mrphilroth/kaggle-yelp) [leaderboard](http://www.kaggle.com/c/yelp-recruiting/leaderboard) [profile](http://www.kaggle.com/users/25160/proth)
 
 Yelp wanted to be able to predict what reviews would be deemed useful
 by their user base before those reviews were made public. They

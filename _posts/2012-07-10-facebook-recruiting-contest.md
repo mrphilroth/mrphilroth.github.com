@@ -5,7 +5,7 @@ category: competition
 competition: true
 ---
 
-[code](https://github.com/mrphilroth/kaggle-fbrecruit) [leaderboard](http://www.kaggle.com/c/FacebookRecruiting/leaderboard)
+[code](https://github.com/mrphilroth/kaggle-fbrecruit) [leaderboard](http://www.kaggle.com/c/FacebookRecruiting/leaderboard) [profile](http://www.kaggle.com/users/25160/proth)
 
 This competition taught me a bunch of different graph algorithms. My
 final submission was based on the
