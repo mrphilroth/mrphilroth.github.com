@@ -31,13 +31,6 @@ var teamCons = topsvg.append("g")
 var currTeamCons = topsvg.append("g")
     .attr("class", "currTeamCons");
 
-// A label for the current year.
-var yeartext = topsvg.append("text")
-    .attr("class", "yeartext")
-    .attr("dx", "1.0em")
-    .attr("dy", ".71em")
-    .text("2013");
-
 topsvg.append("svg:marker")
     .attr("id", "triangle")
     .attr("viewBox", "0 0 10 10")
@@ -113,6 +106,13 @@ d3.csv("salary_cleaned.csv", type, function(error, data) {
     	.selectAll("g")
     	.filter(function(value) { return !value; })
     	.classed("zero", true)
+
+    // A label for the current year.
+    var yeartext = topsvg.append("text")
+	.attr("class", "yeartext")
+	.attr("dx", "1.0em")
+	.attr("dy", ".71em")
+	.text("2013");
 
     // Add clickable arrows
     var leftarrow = topsvg.append("line")
