@@ -3,7 +3,7 @@ var topMargin = {top: 20, right: 40, bottom: 30, left: 20},
 topWidth = 800 - topMargin.left - topMargin.right,
 topHeight = 250 - topMargin.top - topMargin.bottom,
 topBarWidth = Math.floor(topWidth / 30) - 1,
-titleHeight = 50 - topMargin.top - topMargin.bottom;
+titleHeight = 65 - topMargin.top - topMargin.bottom;
 
 var titlesvg = d3.select("body").append("svg")
     .attr("width", topWidth + topMargin.left + topMargin.right)
@@ -19,6 +19,14 @@ var titletext = titlesvg.append("text")
     .style("font-size", "36px")
     .style("font", "300 Helvetica Neue")
     .text("MLB Past and Future Payrolls");
+
+var subtitletext = titlesvg.append("text")
+    .attr("dx",  "7.6em")
+    .attr("dy", "2.2em")
+    .attr("fill", "#666")
+    .style("font-size", "16px")
+    .style("font", "300 Helvetica Neue")
+    .text("Click on teams and players for details. Data courtesy of Baseball Reference.");
 
 // The axes for the top plot
 var topX = d3.scale.ordinal()
@@ -121,7 +129,7 @@ d3.csv("salary_cleaned.csv", type, function(error, data) {
     topsvg.append("g")
     	.attr("class", "top y axis")
     	.attr("transform", "translate(" + topWidth + ",0)")
-	.style("font-weight", "600")
+	.style("font-weight", "700")
 	.style("font-size", "12px")
 	.style("font", "sans-serif")
     	.call(topYAxis)
@@ -132,8 +140,8 @@ d3.csv("salary_cleaned.csv", type, function(error, data) {
     // A label for the current year.
     var yeartext = topsvg.append("text")
 	.attr("class", "yeartext")
-	.attr("dx", "1.0em")
-	.attr("dy", ".71em")
+	.attr("dx", "0.97em")
+	.attr("dy", ".6em")
 	.attr("fill", "#000")
 	.style("font-size", "46px")
 	.style("font", "300 Helvetica Neue")
@@ -141,14 +149,14 @@ d3.csv("salary_cleaned.csv", type, function(error, data) {
 
     // Add clickable arrows
     var leftarrow = topsvg.append("polygon")
-	.attr("points", "30,8 10,20 30,32")
+	.attr("points", "30,0 10,12 30,24")
 	.attr("fill", "#666")
 	.on("click", function() {
 	    year = Math.max(year0, year - 1);
 	    update(); });
 
     var rightarrow = topsvg.append("polygon")
-	.attr("points", "150,8 170,20 150,32")
+	.attr("points", "150,0 170,12 150,24")
 	.attr("fill", "#666")
 	.on("click", function() {
 	    year = Math.min(year1, year + 1);
@@ -347,7 +355,7 @@ d3.csv("salary_cleaned.csv", type, function(error, data) {
     	botsvg.append("g")
     	    .attr("class", "bot y axis")
     	    .attr("transform", "translate(" + botWidth + ",0)")
-	    .style("font-weight", "600")
+	    .style("font-weight", "700")
 	    .style("font-size", "12px")
 	    .style("font", "sans-serif")
     	    .call(botYAxis)
@@ -359,7 +367,7 @@ d3.csv("salary_cleaned.csv", type, function(error, data) {
     	botsvg.append("g")
     	    .attr("class", "bot x axis")
     	    .attr("transform", "translate(0," + botHeight + ")")
-	    .style("font-weight", "600")
+	    .style("font-weight", "700")
 	    .style("font-size", "12px")
 	    .style("font", "sans-serif")
     	    .call(botXAxis);
@@ -438,7 +446,6 @@ d3.csv("salary_cleaned.csv", type, function(error, data) {
 
 });
 
-// Convert the numerical input to numbers
 function type(d) {
     d.year = +d.year;
     d.salary = +d.salary;
@@ -447,7 +454,7 @@ function type(d) {
 }
 
 function format_salary(salary) {
-    if ( salary > 1e6 ) { return "$" + Math.round(salary / 1e6) + "M"; }
-    else if ( salary > 1e3 ) { return "$" + Math.round(salary / 1e3) + "k"; }
+    if ( salary > 1e6 ) { return "$" + Math.round(salary / 1.0e6) + "M"; }
+    else if ( salary > 1e3 ) { return "$" + Math.round(salary / 1.0e3) + "k"; }
     return "$" + Math.round(salary);
 }
