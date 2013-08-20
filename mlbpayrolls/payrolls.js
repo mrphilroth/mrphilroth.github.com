@@ -1,7 +1,24 @@
+// Top SVG
 var topMargin = {top: 20, right: 40, bottom: 30, left: 20},
-topWidth = 768 - topMargin.left - topMargin.right,
+topWidth = 800 - topMargin.left - topMargin.right,
 topHeight = 250 - topMargin.top - topMargin.bottom,
-topBarWidth = Math.floor(topWidth / 30) - 1;
+topBarWidth = Math.floor(topWidth / 30) - 1,
+titleHeight = 50 - topMargin.top - topMargin.bottom;
+
+var titlesvg = d3.select("body").append("svg")
+    .attr("width", topWidth + topMargin.left + topMargin.right)
+    .attr("height", titleHeight + topMargin.top + topMargin.bottom)
+    .attr("class", "titlesvg")
+    .append("g")
+    .attr("transform", "translate(" + topMargin.left + "," + topMargin.top + ")");
+
+var titletext = titlesvg.append("text")
+    .attr("dx", "3.9em")
+    .attr("dy", ".4em")
+    .attr("fill", "#000")
+    .style("font-size", "36px")
+    .style("font", "300 Helvetica Neue")
+    .text("MLB Past and Future Payrolls");
 
 // The axes for the top plot
 var topX = d3.scale.ordinal()
@@ -68,6 +85,8 @@ var teamname = {
 var botteam = "LAD"
 var currplayer = ""
 var currposition = ""
+var curryear = ""
+var currsalary = ""
 
 d3.csv("salary_cleaned.csv", type, function(error, data) { 
 
@@ -102,6 +121,9 @@ d3.csv("salary_cleaned.csv", type, function(error, data) {
     topsvg.append("g")
     	.attr("class", "top y axis")
     	.attr("transform", "translate(" + topWidth + ",0)")
+	.style("font-weight", "600")
+	.style("font-size", "12px")
+	.style("font", "sans-serif")
     	.call(topYAxis)
     	.selectAll("g")
     	.filter(function(value) { return !value; })
@@ -112,29 +134,22 @@ d3.csv("salary_cleaned.csv", type, function(error, data) {
 	.attr("class", "yeartext")
 	.attr("dx", "1.0em")
 	.attr("dy", ".71em")
-	.text("2013");
+	.attr("fill", "#000")
+	.style("font-size", "46px")
+	.style("font", "300 Helvetica Neue")
+    	.text("2013");
 
     // Add clickable arrows
-    var leftarrow = topsvg.append("line")
-	.attr("x1", 30)
-	.attr("y1", 20)
-	.attr("x2", 10)
-	.attr("y2", 20)
-	.attr("stroke", "black")
-	.attr("stroke-width", 7)
-	.attr("marker-end", "url(#triangle)")
+    var leftarrow = topsvg.append("polygon")
+	.attr("points", "30,8 10,20 30,32")
+	.attr("fill", "#666")
 	.on("click", function() {
 	    year = Math.max(year0, year - 1);
 	    update(); });
 
-    var rightarrow = topsvg.append("line")
-	.attr("x1", 150)
-	.attr("y1", 20)
-	.attr("x2", 170)
-	.attr("y2", 20)
-	.attr("stroke", "black")
-	.attr("stroke-width", 7)
-	.attr("marker-end", "url(#triangle)")
+    var rightarrow = topsvg.append("polygon")
+	.attr("points", "150,8 170,20 150,32")
+	.attr("fill", "#666")
 	.on("click", function() {
 	    year = Math.min(year1, year + 1);
 	    update(); });
@@ -162,6 +177,8 @@ d3.csv("salary_cleaned.csv", type, function(error, data) {
     	.data(allteams)
     	.enter().append("g")
     	.attr("class", "team")
+	.attr("text-anchor", "middle")
+	.attr("fill", "#fff")
     	.attr("transform", function(team) { return "translate(" + topX(team) + ",0)"; })
 
     teamCon.selectAll("rect")
@@ -177,7 +194,10 @@ d3.csv("salary_cleaned.csv", type, function(error, data) {
     // Add labels to show the team
     teamCon.append("text")
     	.attr("y", topHeight - 4)
-    	.text(function(team) { return team; });
+	.style("font", "sans-serif")
+	.style("font-size", "10px")
+    	.text(function(team) { return team; })
+	.on("click", function(team) { return display_team(team); });
 
     // Allow the arrow keys to change the displayed year.
     window.focus();
@@ -229,10 +249,10 @@ d3.csv("salary_cleaned.csv", type, function(error, data) {
     }
 
     var botMargin = {top: 20, right: 40, bottom: 30, left: 20},
-    botWidth = 768 - botMargin.left - botMargin.right,
+    botWidth = 800 - botMargin.left - botMargin.right,
     botHeight = 400 - botMargin.top - botMargin.bottom;
 
-    var posdict = {0:'NA', 1:'P ', 2:'C ', 3:'1B', 4:'2B',
+    var posdict = {0:'NA', 1:'P', 2:'C', 3:'1B', 4:'2B',
     		   5:'3B', 6:'SS', 7:'OF', 8:'DH'};
 
     var botX = d3.scale.ordinal()
@@ -293,6 +313,9 @@ d3.csv("salary_cleaned.csv", type, function(error, data) {
 	teamtext = botsvg.append("text")
     	    .attr("class", "teamtext")
     	    .attr("dy", ".5em")
+	    .style("font", "Helvetica Neue")
+	    .style("font-size", "24px")
+	    .attr("fill", "#000")
     	    .text(teamname[botteam]);
 
 	// The stack object with complicated player ordering
@@ -324,6 +347,9 @@ d3.csv("salary_cleaned.csv", type, function(error, data) {
     	botsvg.append("g")
     	    .attr("class", "bot y axis")
     	    .attr("transform", "translate(" + botWidth + ",0)")
+	    .style("font-weight", "600")
+	    .style("font-size", "12px")
+	    .style("font", "sans-serif")
     	    .call(botYAxis)
     	    .selectAll("g")
     	    .filter(function(value) { return !value; })
@@ -333,6 +359,9 @@ d3.csv("salary_cleaned.csv", type, function(error, data) {
     	botsvg.append("g")
     	    .attr("class", "bot x axis")
     	    .attr("transform", "translate(0," + botHeight + ")")
+	    .style("font-weight", "600")
+	    .style("font-size", "12px")
+	    .style("font", "sans-serif")
     	    .call(botXAxis);
 
 	// Position colors
@@ -346,13 +375,11 @@ d3.csv("salary_cleaned.csv", type, function(error, data) {
     	    .attr("class", "layer")
     	    .style("fill", function(d) { return poscolor(d[0].position); })
     	    .on("mouseover", function(d) {
+		curryear = d.year;
+		currsalary = d.salary;
 		currplayer = d[0].player;
 		currposition = posdict[d[0].position];
-		display_player(); })
-	    .on("click", function(d) {
-		currplayer = d[0].player;
-		currposition = posdict[d[0].position];
-		display_player(); });
+		highlight_update(); });
 
 	// A player's rectangles and their properties
     	var rect = layer.selectAll(".layer")
@@ -364,19 +391,41 @@ d3.csv("salary_cleaned.csv", type, function(error, data) {
     	    .attr("height", function(d) { return botY(d.y0) - botY(d.y0 + d.y); })
     	    .attr("stroke", "black")
     	    .attr("stroke-width", 1)
-	    .attr("fill-opacity", 1);
+	    .attr("fill-opacity", 1)
+	    .on("click", function(d) {
+		currplayer = d.player;
+		currposition = posdict[d.position];
+		curryear = d.year;
+		currsalary = d.salary;
+		text_update();
+		highlight_update(); });
 
     	// Add text to contain the player information
     	nametext = botsvg.append("text")
     	    .attr("class", "playertext")
+	    .style("font", "Helvetica Neue")
+	    .style("font-size", "24px")
+	    .attr("fill", "#000")
     	    .attr("dy", "1.5em")
     	    .text("");
 
-	// Highlight the new player
-	function display_player() {
+    	saltext = botsvg.append("text")
+    	    .attr("class", "playertext")
+	    .style("font", "Helvetica Neue")
+	    .style("font-size", "24px")
+	    .attr("fill", "#000")
+    	    .attr("dy", "2.5em")
+    	    .text("");
 
-	    nametext.text(currposition + " " + currplayer);
-	    
+	function text_update() {
+	    nametext.text(currplayer + "  (" + currposition + ")");
+
+	    if( currsalary != "" ) { saltext.text(curryear + ": " + format_salary(currsalary)); }
+	    else { saltext.text(""); }
+	}
+
+	function highlight_update() {
+
 	    layer.selectAll("rect")
     		.data(function(d) { return d; })
 		.transition()
@@ -397,3 +446,8 @@ function type(d) {
     return d;
 }
 
+function format_salary(salary) {
+    if ( salary > 1e6 ) { return "$" + Math.round(salary / 1e6) + "M"; }
+    else if ( salary > 1e3 ) { return "$" + Math.round(salary / 1e3) + "k"; }
+    return "$" + Math.round(salary);
+}
