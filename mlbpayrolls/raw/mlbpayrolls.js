@@ -96,7 +96,7 @@ var currposition = ""
 var curryear = ""
 var currsalary = ""
 
-d3.csv("salary_cleaned.csv", type, function(error, data) { 
+d3.csv("mlbpayrolls.csv", type, function(error, data) { 
 
     // Group by year and team
     var tnest = d3.nest()
