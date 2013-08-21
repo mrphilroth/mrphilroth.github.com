@@ -4,8 +4,8 @@ title: "MLB Past and Future Payrolls"
 category: data
 ---
 
-I'm a big fan of Bill Simmons' [BS Report
-podcast](http://espn.go.com/espnradio/podcast/archive?id=2864045)
+I'm a big fan of Bill Simmons' [BS
+Report](http://espn.go.com/espnradio/podcast/archive?id=2864045)
 podcast. Some of my favorite parts are when Bill talks about trade
 possibilities between teams. It's always fun to try and step into a
 general manager's shoes and imagine what they can and can't do to
