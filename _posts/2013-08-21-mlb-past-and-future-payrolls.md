@@ -36,8 +36,7 @@ payroll with players like Mike Mussina and Rafael Palmeiro. Scrolling
 back to the present day shows a lot of story lines: how the Yankees
 expanded their payroll way faster than the rest of the league in the
 early 2000s, fire sales of the Marlins in 2006 and to a lesser extent
-in 2013, and the Dodgers' rapid leapfrog to post the absolute largest
-payroll this year.
+in 2013, and the recent rapid rise of the Dodgers' payroll.
 
 When you scroll to future years, the 2013 payroll hangs around as a
 ghost image to provide a rough benchmark of what you might expect the
