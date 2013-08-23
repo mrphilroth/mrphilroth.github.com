@@ -21,12 +21,12 @@ var titletext = titlesvg.append("text")
     .text("MLB Past and Future Payrolls");
 
 var subtitletext = titlesvg.append("text")
-    .attr("dx",  "7.6em")
+    .attr("dx",  "4.8em")
     .attr("dy", "2.2em")
     .attr("fill", "#666")
     .style("font-size", "16px")
     .style("font", "300 Helvetica Neue")
-    .text("Click on teams and players for details. Data courtesy of Baseball Reference.");
+    .text("Click on teams and players for details. Data courtesy of Baseball Reference and Cot's Contracts.");
 
 // The axes for the top plot
 var topX = d3.scale.ordinal()
@@ -90,7 +90,7 @@ var teamname = {
     "SFG":"San Francisco Giants", "STL":"St. Louis Cardinals", "TBR":"Tampa Bay Rays",
     "TEX":"Texas Rangers", "TOR":"Toronto Blue Jays", "WSN":"Washington Nationals" };
 
-var botteam = "LAD"
+var botteam = "NYY"
 var currplayer = ""
 var currposition = ""
 var curryear = ""
@@ -345,6 +345,8 @@ d3.csv("mlbpayrolls.csv", type, function(error, data) {
     	    });
 
 	// Create the layers
+
+	console.log(pnest[team]);
     	var layers = stack(d3.values(pnest[team]));
 
 	// The input to the two axes

@@ -89,3 +89,19 @@ around the whole thing while building it. I think it's a great
 indication that you're building something interesting if you
 constantly get distracted playing with the thing instead of working on
 it.
+
+UPDATE: After getting picked up by
+[Fangraphs](http://www.fangraphs.com/blogs/link-visualizing-the-changes-in-mlb-payrolls/)
+and
+[Deadspin](http://deadspin.com/this-interactive-graphic-on-mlb-payrolls-is-amazing-1184880875),
+I got a lot of feedback. Most of it involved the words 'Bobby
+Bonilla'. [His
+payments](http://www.celebritynetworth.com/articles/entertainment-articles/bobby-bonilla-baseball-contract/)
+now show up in the charts. Also, the full salaries of some players
+that were traded this year were being counted against both teams. This
+happened when there wasn't good information about what the teams
+agreed on in the trade, so I ended up just splitting the salaries
+evenly between the two. That whole process made the Dodgers drop from
+the top spot! I guess they'll have to content themselves with making
+the jump next year.
+
