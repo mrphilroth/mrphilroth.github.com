@@ -18,15 +18,15 @@ var titletext = titlesvg.append("text")
     .attr("fill", "#000")
     .style("font-size", "36px")
     .style("font", "300 Helvetica Neue")
-    .text("MLB Past and Future Payrolls");
+    .text("NBA Past and Future Payrolls");
 
 var subtitletext = titlesvg.append("text")
-    .attr("dx",  "4.8em")
+    .attr("dx",  "7.0em")
     .attr("dy", "2.2em")
     .attr("fill", "#666")
     .style("font-size", "16px")
     .style("font", "300 Helvetica Neue")
-    .text("Click on teams and players for details. Data courtesy of Baseball Reference and Cot's Contracts.");
+    .text("Click on teams and players for details. Data courtesy of Basketball Reference.");
 
 // The axes for the top plot
 var topX = d3.scale.ordinal()
@@ -56,47 +56,47 @@ var teamCons = topsvg.append("g")
 var currTeamCons = topsvg.append("g")
     .attr("class", "currTeamCons");
 
-topsvg.append("svg:marker")
-    .attr("id", "triangle")
-    .attr("viewBox", "0 0 10 10")
-    .attr("refX", 0)
-    .attr("refY", 5)
-    .attr("markerUnits", "strokeWidth")
-    .attr("markerWidth", 4)
-    .attr("markerHeight", 3)
-    .attr("orient", "auto")
-    .append("svg:path")
-    .attr("d", "M 0 0 L 10 5 L 0 10 z");
+var allteams = ["ATL", "BOS", "CHA", "CHI", "CLE", "DAL", "DEN", "DET", "GSW",
+		"HOU", "IND", "LAC", "LAL", "MEM", "MIA", "MIL", "MIN", "BRK",
+		"NOP", "NYK", "OKC", "ORL", "PHI", "PHO", "POR", "SAC", "SAS",
+		"TOR", "UTA", "WAS"]
 
 var teamcolors = {
-    "ARI":"#C51230", "ATL":"#01487E", "BAL":"#DF4601", "BOS":"#BD3039",
-    "CHC":"#0E3386", "CHW":"#000000", "CIN":"#EB184B", "CLE":"#C51230",
-    "COL":"#333366", "DET":"#10293F", "HOU":"#95322c", "KCR":"#000572",
-    "LAA":"#CE1141", "LAD":"#005596", "MIA":"#00A5B1", "MIL":"#012143",
-    "MIN":"#042462", "NYM":"#004685", "NYY":"#132448", "OAK":"#00483A",
-    "PHI":"#CA1F2C", "PIT":"#FFB40B", "SDP":"#1C3465", "SEA":"#003166",
-    "SFG":"#FB5B1F", "STL":"#C41E3A", "TBR":"#00285D", "TEX":"#01317B",
-    "TOR":"#0067A6", "WSN":"#BA122B" };
+    "ATL":"#D21033", "BOS":"#05854C", "CHA":"#29588B", "CHI":"#D4001F",
+    "CLE":"#9F1425", "DAL":"#006AB5", "DEN":"#4393D1", "DET":"#006BB6",
+    "GSW":"#FFC33C", "HOU":"#CC0000", "IND":"#FFC225", "LAC":"#EE2944",
+    "LAL":"#F5AF1B", "MEM":"#001B41", "MIA":"#B62630", "MIL":"#00330A",
+    "MIN":"#015287", "BRK":"#000000", "NOP":"#0095CA", "NYK":"#2E66B2",
+    "OKC":"#0075C1", "ORL":"#077ABD", "PHI":"#0068B3", "PHO":"#FF7A31",
+    "POR":"#E1393E", "SAS":"#000000", "SAC":"#743389", "TOR":"#CD1041",
+    "UTA":"#001D4D", "WAS":"#004874" };
 
-var teamname = {
-    "ARI":"Arizona Diamondbacks", "ATL":"Atlanta Braves", "BAL":"Baltimore Orioles", 
-    "BOS":"Boston Red Sox", "CHC":"Chicago Cubs", "CHW":"Chicago White Sox",
-    "CIN":"Cincinati Reds", "CLE":"Cleveland Indians", "COL":"Colorado Rockies",
-    "DET":"Detroit Tigers", "HOU":"Houston Astros", "KCR":"Kansas City Royals",
-    "LAA":"Los Angeles Angels", "LAD":"Los Angeles Dodgers", "MIA":"Miami Marlins",
-    "MIL":"Milwaukee Brewers", "MIN":"Minnesota Twins", "NYM":"New York Mets", 
-    "NYY":"New York Yankees", "OAK":"Oakland Athletics", "PHI":"Philadelphia Phillies",
-    "PIT":"Pittsburgh Pirates", "SDP":"San Diego Padres", "SEA":"Seattle Mariners",
-    "SFG":"San Francisco Giants", "STL":"St. Louis Cardinals", "TBR":"Tampa Bay Rays",
-    "TEX":"Texas Rangers", "TOR":"Toronto Blue Jays", "WSN":"Washington Nationals" };
+var teamnames = {
+    "ATL":"Atlanta Hawks", "BOS":"Boston Celtics", "CHA":"Charolette Bobcats",
+    "CHI":"Chicago Bulls", "CLE":"Cleveland Cavaliers", "DAL":"Dallas Mavericks",
+    "DEN":"Denver Nuggets", "DET":"Detroit Pistons", "GSW":"Golden State Warriors",
+    "HOU":"Houston Rockets", "IND":"Indiana Pacers", "LAC":"Los Angeles Clippers",
+    "LAL":"Los Angeles Lakers", "MEM":"Memphis Grizzlies", "MIA":"Miami Heat",
+    "MIL":"Milwaukee Bucks", "MIN":"Minnesota Timberwolves", "BRK":"Brooklyn Nets",
+    "NOP":"New Orleans Pelicans", "NYK":"New York Knicks", "OKC":"Oklahoma City Thunder",
+    "ORL":"Orlando Magic", "PHI":"Philadelphia 76ers", "PHO":"Phoenix Suns",
+    "POR":"Portland Trailblazers", "SAS":"San Antonio Spurs", "SAC":"Sacramento Kings",
+    "TOR":"Toronto Raptors", "UTA":"Utah Jazz", "WAS":"Washington Wizards" };
 
-var botteam = "NYY"
-var currplayer = ""
-var currposition = ""
+var salarycaps = {
+    1998:26900000, 1999:30000000, 2000:34000000, 2001:35500000, 2002:42500000,
+    2003:40270000, 2004:43840000, 2005:43870000, 2006:49500000, 2007:53100000,
+    2008:55600000, 2009:58680000, 2010:57700000, 2011:58044000, 2012:58000000,
+    2013:58000000, 2014:58697000, 2015:58697000, 2016:58697000, 2017:58697000,
+    2018:58697000 };
+
+var botteam = "BRK"
 var curryear = ""
+var currplayer = ""
 var currsalary = ""
+var currposition = ""
 
-d3.csv("mlbpayrolls.csv", type, function(error, data) { 
+d3.csv("nbapayrolls.csv", type, function(error, data) { 
 
     // Group by year and team
     var tnest = d3.nest()
@@ -109,9 +109,9 @@ d3.csv("mlbpayrolls.csv", type, function(error, data) {
     // Compute the extent of the data set in years.
     var year0 = d3.min(d3.keys(tnest));
     year1 = d3.max(d3.keys(tnest));
-    year = 2013;
+    year = 2014;
 
-    // The highest yearly payroll (Congrats 2013 Dodgers!)
+    // The highest yearly payroll
     var maxpay = d3.max(d3.values(tnest), function(year) {
 	return d3.max(d3.values(year), function(teamnode) {
 	    return teamnode[0]['payroll'];
@@ -122,7 +122,6 @@ d3.csv("mlbpayrolls.csv", type, function(error, data) {
     topY.domain([0, maxpay]);
 
     // Update the sorted team domain
-    var allteams = d3.keys(teamcolors);
     topX.domain(allteams.sort(function(a, b) { return tnest[year][a][0]['payroll'] - tnest[year][b][0]['payroll']; }));
 
     // Add an axis to show the payroll values.
@@ -143,9 +142,9 @@ d3.csv("mlbpayrolls.csv", type, function(error, data) {
 	.attr("dx", "0.97em")
 	.attr("dy", ".6em")
 	.attr("fill", "#000")
-	.style("font-size", "46px")
+	.style("font-size", "42px")
 	.style("font", "300 Helvetica Neue")
-    	.text("2013");
+    	.text(format_year(year));
 
     // Add clickable arrows
     var leftarrow = topsvg.append("polygon")
@@ -156,7 +155,7 @@ d3.csv("mlbpayrolls.csv", type, function(error, data) {
 	    update(); });
 
     var rightarrow = topsvg.append("polygon")
-	.attr("points", "150,0 170,12 150,24")
+	.attr("points", "190,0 210,12 190,24")
 	.attr("fill", "#666")
 	.on("click", function() {
 	    year = Math.min(year1, year + 1);
@@ -170,7 +169,7 @@ d3.csv("mlbpayrolls.csv", type, function(error, data) {
     	.attr("transform", function(team) { return "translate(" + topX(team) + ",0)"; });
 
     currTeamCon.selectAll("rect")
-    	.data(function(team) { return tnest[2013][team]; })
+    	.data(function(team) { return tnest[2014][team]; })
     	.enter().append("rect")
     	.attr("fill-opacity", 0)
     	.attr("x", -topBarWidth / 2)
@@ -207,7 +206,44 @@ d3.csv("mlbpayrolls.csv", type, function(error, data) {
     	.text(function(team) { return team; })
 	.on("click", function(team) { return display_team(team); });
 
-    // Allow the arrow keys to change the displayed year.
+    // Draw the salary cap level
+    var rightarrow = topsvg.append("polygon")
+	.attr("points", "190,0 210,12 190,24")
+	.attr("fill", "#666")
+	.on("click", function() {
+	    year = Math.min(year1, year + 1);
+	    update(); });
+
+    function line_data(salarycap) {
+	var closex = topX.rangeExtent()[0];
+	var farx = topX.rangeExtent()[1] - topX.rangeBand();
+	return [[closex, salarycap], [farx, salarycap]];
+    }
+
+    // Salary cap line
+    var cappath = topsvg.selectAll(".capline")
+	.data([line_data(salarycaps[year])])
+	.enter().append("svg:path")
+	.attr("class", "capline")
+	.attr("stroke", "black")
+	.attr("stroke-width", "3")
+	.attr("stroke-dasharray", "10,10")
+    	.attr("d", d3.svg.line()
+	      .x(function(d) { return d[0]; })
+	      .y(function(d) { return topY(d[1]); }));
+
+    // Salary cap line
+    var captext = topsvg.selectAll(".captext")
+	.data([line_data(salarycaps[year])[0]])
+	.enter().append("text")
+	.attr("x", function(d) { return d[0]; })
+	.attr("y", function(d) { return topY(d[1]) - 5; })
+	.attr("fill", "#000")
+	.style("font-size", "16px")
+	.style("font", "300 Helvetica Neue")
+    	.text("Salary Cap");
+
+    // Allow the arrow keys to change the year.
     window.focus();
     d3.select(window).on("keydown", function() {
     	switch (d3.event.keyCode) {
@@ -220,23 +256,23 @@ d3.csv("mlbpayrolls.csv", type, function(error, data) {
     // Transition when the year is changed
     function update() {
     	if (!(year in data)) return;
-    	yeartext.text(year);
+    	yeartext.text(format_year(year));
 
-    	if(year <= 2013) {
+    	if(year <= 2014) {
 	    topX.domain(allteams.sort(function(a, b) {
 		return tnest[year][a][0]['payroll'] - tnest[year][b][0]['payroll'];
 	    }));
     	    var currfillop = 0;
     	} else { 
 	    topX.domain(allteams.sort(function(a, b) {
-		return tnest[2013][a][0]['payroll'] - tnest[2013][b][0]['payroll'];
+		return tnest[2014][a][0]['payroll'] - tnest[2014][b][0]['payroll'];
 	    }));
     	    var currfillop = 0.4;
     	}
 
 	teamCon.transition()
             .duration(750)
-            .attr("transform", function(team) { return "translate(" + topX(team) + ", 0)"; })
+            .attr("transform", function(team) { return "translate(" + topX(team) + ", 0)"; });
 
 	teamCon.selectAll("rect")
 	    .data(function(team) { return tnest[year][team]; })
@@ -247,21 +283,32 @@ d3.csv("mlbpayrolls.csv", type, function(error, data) {
 
 	currTeamCon.transition()
             .duration(750)
-            .attr("transform", function(team) { return "translate(" + topX(team) + ", 0)"; })
+            .attr("transform", function(team) { return "translate(" + topX(team) + ", 0)"; });
 
 	currTeamCon.selectAll("rect")
 	    .data(function(team) { return tnest[year][team]; })
 	    .transition()
 	    .duration(750)
-	    .attr("fill-opacity", currfillop)
+	    .attr("fill-opacity", currfillop);
+
+	cappath.data([line_data(salarycaps[year])])
+	    .transition()
+	    .duration(750)
+    	    .attr("d", d3.svg.line()
+		  .x(function(d) { return d[0]; })
+		  .y(function(d) { return topY(d[1]); }));
+
+	captext.data([line_data(salarycaps[year])[0]])
+	    .transition()
+	    .duration(750)
+	    .attr("y", function(d) { return topY(d[1]) - 5; });
     }
 
-    var botMargin = {top: 40, right: 40, bottom: 30, left: 20},
+    var botMargin = {top: 20, right: 40, bottom: 50, left: 20},
     botWidth = 800 - botMargin.left - botMargin.right,
-    botHeight = 420 - botMargin.top - botMargin.bottom;
+    botHeight = 400 - botMargin.top - botMargin.bottom;
 
-    var posdict = {0:'NA', 1:'P', 2:'C', 3:'1B', 4:'2B',
-    		   5:'3B', 6:'SS', 7:'OF', 8:'DH'};
+    var posdict = {0:'NA', 1:'PG', 2:'SG', 3:'SF', 4:'PF', 5:'C'};
 
     var botX = d3.scale.ordinal()
     	.rangeRoundBands([0, botWidth]);
@@ -273,7 +320,8 @@ d3.csv("mlbpayrolls.csv", type, function(error, data) {
     	.scale(botX)
     	.tickSize(0)
     	.tickPadding(6)
-    	.orient("bottom");
+    	.orient("bottom")
+	.tickFormat(format_year);
 
     var botYAxis = d3.svg.axis()
     	.scale(botY)
@@ -322,24 +370,21 @@ d3.csv("mlbpayrolls.csv", type, function(error, data) {
     	    .x(function(d) { return d.year; })
     	    .y(function(d) { return d.salary; })
     	    .order(function(data) {
+		// Sort by largest contract values on bottom
     		var indices = d3.range(data.length),
-    		lastyear = data.map(function(player) {
-    		    var yinds = d3.range(player.length);
-    		    return d3.max(yinds, function(yind) { return player[yind][1] > 0 ? yind : 0; }); }),
-    		lastsal = data.map(function(player, i) { return player[lastyear[i]][1]; });
-
-    		indices.sort(function (a, b) { 
-    		    if( lastyear[a] == lastyear[b] ) { return lastsal[b] - lastsal[a]; }
-    		    else { return lastyear[b] - lastyear[a]; }
-    		})
-    		return indices;
+    		yearinds = d3.range(data[0].length),
+		totalsal = data.map(function(player) { return d3.sum(yearinds, function(yearind) { return player[yearind][1]; }); });
+		indices.sort(function(a, b) { return totalsal[b] - totalsal[a]; });
+		return indices;
     	    });
 
 	// Create the layers
     	var layers = stack(d3.values(pnest[team]));
 
 	// The input to the two axes
-    	botX.domain(d3.set(data.map(function(d) { return d.year; })).values().sort());
+	var allyears = d3.set(data.map(function(d) { return d.year; })).values().sort();
+	var textyears = allyears.map(format_year);
+    	botX.domain(allyears);
     	botY.domain([0, maxpay]);
 
     	// Add an axis to show the payroll values.
@@ -357,11 +402,13 @@ d3.csv("mlbpayrolls.csv", type, function(error, data) {
     	// Add an axis to show the years.
     	botsvg.append("g")
     	    .attr("class", "bot x axis")
-    	    .attr("transform", "translate(0," + botHeight + ")")
+    	    .attr("transform", "translate(-12," + (botHeight + 26) + ")")
 	    .style("font-weight", "700")
 	    .style("font-size", "12px")
 	    .style("font", "sans-serif")
-    	    .call(botXAxis);
+    	    .call(botXAxis)
+	    .selectAll("text")
+	    .attr("transform", function(d) { return "rotate(-80)"; });
 
 	// Grid lines to the bottom
 	botsvg.selectAll("line.horizontalGrid").data(botY.ticks()).enter()
@@ -379,9 +426,30 @@ d3.csv("mlbpayrolls.csv", type, function(error, data) {
 		    "stroke-width" : "1px"
 		});
 
+	// Add a box for player, team, and salary text information
+    	botsvg.append("rect")
+    	    .attr("class", "textbox")
+    	    .attr("x", -3)
+    	    .attr("y", -20)
+    	    .attr("width", 282)
+    	    .attr("height", 75)
+	    .attr("stroke", "#000")
+	    .attr("stroke-width", 2)
+	    .attr("fill", "#fff");
+
+	// Add text to contain the player information
+	teamtext = botsvg.append("text")
+    	    .attr("class", "teamtext")
+    	    .attr("dy", "0em")
+	    .style("font", "Helvetica Neue")
+	    .style("font-size", "24px")
+	    .attr("fill", "#000")
+    	    .text(teamnames[botteam]);
+
 	// Position colors
-    	var poscolor = d3.scale.category10()
-    	    .domain([7, 8, 3, 1, 4, 5, 9, 0, 2, 6])
+	var poscolor = d3.scale.ordinal()
+    	    .domain([0, 1, 2, 3, 4, 5])
+	    .range(["#bcbd22", "#17becf", "#1f77b4", "#c977a2", "#d62728", "#2ca02c"]);
 
 	// A player's layer and its properties
     	var layer = botsvg.selectAll(".layer")
@@ -414,42 +482,21 @@ d3.csv("mlbpayrolls.csv", type, function(error, data) {
 		text_update();
 		highlight_update(); });
 
-	// Add a box for player, team, and salary text information
-    	botsvg.append("rect")
-    	    .attr("class", "textbox")
-    	    .attr("x", -3)
-    	    .attr("y", -40)
-    	    .attr("width", 282)
-    	    .attr("height", 75)
-	    .attr("stroke", "#000")
-	    .attr("stroke-width", 2)
-	    .attr("fill", "#fff");
-
-	// Add text to contain the team information
-	teamtext = botsvg.append("text")
-    	    .attr("class", "teamtext")
-    	    .attr("dy", "-0.8em")
-	    .style("font", "Helvetica Neue")
-	    .style("font-size", "24px")
-	    .attr("fill", "#000")
-    	    .text(teamname[botteam]);
-
     	// Add text to contain the player information
     	nametext = botsvg.append("text")
     	    .attr("class", "playertext")
 	    .style("font", "Helvetica Neue")
 	    .style("font-size", "24px")
 	    .attr("fill", "#000")
-    	    .attr("dy", "0.2em")
-    	    .text("");
+    	    .attr("dy", "1.0em") 
+   	    .text("");
 
-	// Add text to contain the salary information
     	saltext = botsvg.append("text")
     	    .attr("class", "playertext")
 	    .style("font", "Helvetica Neue")
 	    .style("font-size", "24px")
 	    .attr("fill", "#000")
-    	    .attr("dy", "1.2em")
+    	    .attr("dy", "2.0em")
     	    .text("");
 
 	function text_update() {
@@ -481,8 +528,16 @@ function type(d) {
     return d;
 }
 
+function format_year(year) {
+    var prevyear = (year - 1).toString(),
+    endofyear = (year % 100).toString();
+    if ( endofyear.length == 1 ) { endofyear = "0" + endofyear; }
+    return prevyear.toString() + "-" + endofyear.toString();
+}
+
 function format_salary(salary) {
     if ( salary > 1e6 ) { return "$" + Math.round(salary / 1.0e6) + "M"; }
     else if ( salary > 1e3 ) { return "$" + Math.round(salary / 1.0e3) + "k"; }
     return "$" + Math.round(salary);
 }
+
