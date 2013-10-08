@@ -1,12 +1,12 @@
 var currselection = "sacks";
 var currteamyear = "none";
 
-var textboxdata = {"sacks":"The Bucs are sacking quarterbacks at a high rate this year.",
-		   "ff":"The Bucs are pretty standard on forced fumbles.",
-		   "interc":"The Bucs are above average when it comes to interceptions",
-		   "rushyds":"Last year, the Bucs finished the season with the best rushing defense in the league. This year the Bucs are still defending the run quite well.",
-		   "passyds":"Last year, the Bucs finished the season with the worst passing defense in the league. This year the Bucs have really improved in this area.",
-		   "points":"All the numbers in the other stat categories are great, but maybe the most important stat is that the Bucs defense is allowing fewer points per game than last year."};
+var textboxdata = {"sacks":"Sacks: As seen in the comparison between the Buccaneers' 2012 and 2013 quarterback sack trend lines, the team is on pace for a much improved final total in this key statistic, and is also keeping pace with the league leaders.",
+		   "ff":"Forced Fumbles: The Buccaneers have shown modest improvement in forcing fumbles in 2013 and are also well above league average in this category.",
+		   "interc":"Interceptions: While this was already a strength of the Buccaneers' defense in 2012, a two-interception game in Week Four has the 2013 on a similar pace.",
+		   "rushyds":"Rushing Defense: The 2012 defense set the bar high by leading the league in run defense.  While the 2013 team hasn't quite matched that production, it remains one of the best in the league.",
+		   "passyds":"Passing Defense: This is where the Bucs expected to make their greatest improvement in 2013 after some significant offseason additions, and indeed their pass defense performance this season has been steady from week to week and roughly in the middle of the NFL pack.",
+		   "points":"Points Allowed: As would be expected given the improvements noted in the previous graphs, the Buccaneers have set a much better pace during the first quarter of the 2013 season in regard to points allowed per game."};
 
 var legenddata = [{"name":"2013 Tampa Bay Buccaneers",
 		   "color":"#FF7A00",
@@ -91,8 +91,11 @@ var line = d3.svg.line()
     .x(function(d) { return x(d["game"]); })
     .y(function(d) { return y(d[currselection]); });
 
-var headerdiv = d3.select("body")
-    .append("div")
+var headersvg = d3.select("body").append("svg")
+    .attr("width", width + margin.left)
+    .attr("height", 40)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + ", 0)")
     .attr("class", "headerdiv");
 
 var buttondiv = d3.select("body")
@@ -105,14 +108,15 @@ var svg = d3.select("body").append("svg")
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-var textareadiv = d3.select("body")
-    .append("div")
+var textareadiv = d3.select("body").append("div")
     .attr("class", "textareadiv");
 
 d3.csv("vis01_data.csv", accessor, function(error, data) {
 
-    headerdiv.append("text")
+    headersvg.append("text")
     	.attr("class", "headertext")
+	.attr("dx", "3.8em")
+	.attr("dy", ".9em")
 	.text("CUMULATIVE DEFENSIVE STATS");
 
     buttondiv.selectAll("input")
@@ -200,20 +204,25 @@ d3.csv("vis01_data.csv", accessor, function(error, data) {
         .attr('y', function(d, i){ return (i *  22) + 21;})
         .text(function(d){ return d["name"]; });
 
-    textareadiv.append("center")
-	.append("span")
-	.append("text")
-    	.attr("class", "textareatext")
+    textareadiv.append("p")
+    	.attr("class", "textareap")
 	.text(function() { return textboxdata[currselection]; });
+
+    function numberWithCommas(x) {
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
     
     $(".teampath").tipsy({
 	html: true,
 	gravity: "w",
 	title: function() {
-	    var year = this.__data__[0]['year']
 	    var d = tipdata[this.__data__[0]['team']];
-	    return "<span style='font: 15px sans-serif'><strong>" + d["city"] + "<br>" + d["team"] + "</strong><br>" +
-		year + "<br></span>";
+	    var year = this.__data__[0]['year'];
+	    var value = this.__data__[this.__data__.length - 1][currselection];
+	    return "<span style='font: 15px sans-serif'><strong>" + d["city"] + "<br>" + 
+		d["team"] + "</strong><br>" +
+		year + "<br>" +
+		"Total: " + numberWithCommas(value) + "</span>";
 	}
     });
 
@@ -229,7 +238,7 @@ d3.csv("vis01_data.csv", accessor, function(error, data) {
 		if( d["variable"] == currselection ) { return "statbutton-selected"; }
 		else { return "statbutton"; }});
 
-	textareadiv.selectAll("text")
+	textareadiv.selectAll("p")
 	    .transition()
 	    .duration(0)
 	    .text(function() { return textboxdata[currselection]; });
