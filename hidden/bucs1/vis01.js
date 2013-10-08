@@ -3,7 +3,7 @@ var currteamyear = "none";
 
 var textboxdata = {"sacks":"Sacks: As seen in the comparison between the Buccaneers' 2012 and 2013 quarterback sack trend lines, the team is on pace for a much improved final total in this key statistic, and is also keeping pace with the league leaders.",
 		   "ff":"Forced Fumbles: The Buccaneers have shown modest improvement in forcing fumbles in 2013 and are also well above league average in this category.",
-		   "interc":"Interceptions: While this was already a strength of the Buccaneers' defense in 2012, a two-interception game in Week Four has the 2013 on a similar pace.",
+		   "interc":"Interceptions: While this was already a strength of the Buccaneers' defense in 2012, a two-interception game in Week Four has the 2013 team on a similar pace.",
 		   "rushyds":"Rushing Defense: The 2012 defense set the bar high by leading the league in run defense.  While the 2013 team hasn't quite matched that production, it remains one of the best in the league.",
 		   "passyds":"Passing Defense: This is where the Bucs expected to make their greatest improvement in 2013 after some significant offseason additions, and indeed their pass defense performance this season has been steady from week to week and roughly in the middle of the NFL pack.",
 		   "points":"Points Allowed: As would be expected given the improvements noted in the previous graphs, the Buccaneers have set a much better pace during the first quarter of the 2013 season in regard to points allowed per game."};
@@ -129,7 +129,9 @@ d3.csv("vis01_data.csv", accessor, function(error, data) {
 	.attr("value", function(d) { return d["name"]; })
 	.on("click", function(d) {
 	    currselection = d["variable"];
-	    update_stat(d["variable"]); });
+	    update_stat(d["variable"]); })
+	.on("mouseover", function() { d3.select(d3.event.target).classed("statbutton-highlight", true); })
+	.on("mouseout", function() { d3.select(d3.event.target).classed("statbutton-highlight", false); });
 
     x.domain(d3.extent(data, function(d) { return d.game; }));
     y.domain(d3.extent(data, function(d) { return d[currselection]; }));
