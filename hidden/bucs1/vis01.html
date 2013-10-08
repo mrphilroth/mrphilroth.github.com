@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Cumulative Defensive Stats</title>
+    <title>Cumulative Defenseive Stats</title>
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="tipsy/javascripts/jquery.tipsy.js"></script>
@@ -21,25 +21,44 @@
       shape-rendering: crispEdges;
       }
 
-      .divbutton {
+      .buttondiv {
       margin:auto;
       width:82%;
       }
 
-      .divheader {
+      .headerdiv {
       text-align:center;
-      width:96%;
+      width:95%;
       }
 
       .headertext {
-      font-style: Arial;
       font-size: 34px;
       text-align: center;
+      font-weight: normal;
+      font-family: Arial, sans-serif;
       }
 
       .legendtext {
-      font-style: Arial;
+      font-size: 16px;
+      font-weight: normal;
+      font-family: Arial, sans-serif;
+      }
+
+      .textareadiv {
+      margin:auto;
+      width:80%;
+      }
+
+      .textareatext {
       font-size: 18px;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      }
+
+      .xlabel {
+      font-size: 18px;
+      text-anchor: end;
+      font-family: Arial, sans-serif;
       }
 
       .statbutton {
@@ -48,12 +67,11 @@
       overflow: hidden;
       width: 125px;
       list-style-type: none;
-      background: #E8E8E8;
       padding: 8px 5px;
-      background: #E8E8E8;
+      background: #A71930;
       text-align: center;
-      font-family: Arial;
-      color: #888;
+      font-family: Arial, sans-serif;
+      color: black;
       font-size: 13px;
       font-weight: normal;
       border-right: solid 2px white;
@@ -68,18 +86,17 @@
       overflow: hidden;
       width: 125px;
       list-style-type: none;
-      background: #9fabaf;
       padding: 8px 5px;
-      background: #9fabaf;
+      background: #841527;
       text-align: center;
-      font-family: Arial;
-      color: #fff;
+      font-family: Arial, sans-serif;
+      color: white;
       font-size: 13px;
       font-weight: normal;
-      border-right: solid 2px white;
-      border-left: solid 2px white;
-      border-top: solid 2px white;
-      border-bottom: solid 2px white;
+      border-right: solid 2px black;
+      border-left: solid 2px black;
+      border-top: solid 2px black;
+      border-bottom: solid 2px black;
       }
 
     </style>

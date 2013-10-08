@@ -1,11 +1,18 @@
 var currselection = "sacks";
 var currteamyear = "none";
 
+var textboxdata = {"sacks":"The Bucs are sacking quarterbacks at a high rate this year.",
+		   "ff":"The Bucs are pretty standard on forced fumbles.",
+		   "interc":"The Bucs are above average when it comes to interceptions",
+		   "rushyds":"Last year, the Bucs finished the season with the best rushing defense in the league. This year the Bucs are still defending the run quite well.",
+		   "passyds":"Last year, the Bucs finished the season with the worst passing defense in the league. This year the Bucs have really improved in this area.",
+		   "points":"All the numbers in the other stat categories are great, but maybe the most important stat is that the Bucs defense is allowing fewer points per game than last year."};
+
 var legenddata = [{"name":"2013 Tampa Bay Buccaneers",
 		   "color":"#FF7A00",
 		   "stroke-width":6},
 		  {"name":"2012 Tampa Bay Buccaneers",
-		   "color":"#B20032",
+		   "color":"#A71930",
 		   "stroke-width":6},
 		  {"name":"Other 2013 Teams",
 		   "color":"#444",
@@ -86,11 +93,11 @@ var line = d3.svg.line()
 
 var headerdiv = d3.select("body")
     .append("div")
-    .attr("class", "divheader");
+    .attr("class", "headerdiv");
 
 var buttondiv = d3.select("body")
     .append("div")
-    .attr("class", "divbutton");
+    .attr("class", "buttondiv");
 
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -98,11 +105,15 @@ var svg = d3.select("body").append("svg")
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+var textareadiv = d3.select("body")
+    .append("div")
+    .attr("class", "textareadiv");
+
 d3.csv("vis01_data.csv", accessor, function(error, data) {
 
     headerdiv.append("text")
     	.attr("class", "headertext")
-	.text("Cumulative Defensive Stats");
+	.text("CUMULATIVE DEFENSIVE STATS");
 
     buttondiv.selectAll("input")
 	.data(buttondata)
@@ -138,11 +149,9 @@ d3.csv("vis01_data.csv", accessor, function(error, data) {
     	.call(xAxis);
 
     svg.append("text")
-	.attr("class", "x label")
-	.attr("text-anchor", "end")
+	.attr("class", "xlabel")
 	.attr("x", width - 10)
 	.attr("y", height - 6)
-	.style("font-size", "18")
 	.text("Game");
 
     svg.selectAll(".teampath")
@@ -154,7 +163,7 @@ d3.csv("vis01_data.csv", accessor, function(error, data) {
     	.attr("fill", "none")
     	.attr("stroke", function(d) {
 	    if( d[0]["team"] == "tam") {
-		if ( d[0]['year'] == "2012" ) { return "#B20032"; }
+		if ( d[0]['year'] == "2012" ) { return "#A71930"; }
 		else { return "#FF7A00"; } }
 	    else if ( d[0]['year'] == "2013" ) { return "#444"; }
 	    else { return "#999"; } } )
@@ -190,6 +199,12 @@ d3.csv("vis01_data.csv", accessor, function(error, data) {
         .attr('x', 38)
         .attr('y', function(d, i){ return (i *  22) + 21;})
         .text(function(d){ return d["name"]; });
+
+    textareadiv.append("center")
+	.append("span")
+	.append("text")
+    	.attr("class", "textareatext")
+	.text(function() { return textboxdata[currselection]; });
     
     $(".teampath").tipsy({
 	html: true,
@@ -213,6 +228,11 @@ d3.csv("vis01_data.csv", accessor, function(error, data) {
 	    .attr("class", function(d) {
 		if( d["variable"] == currselection ) { return "statbutton-selected"; }
 		else { return "statbutton"; }});
+
+	textareadiv.selectAll("text")
+	    .transition()
+	    .duration(0)
+	    .text(function() { return textboxdata[currselection]; });
 
 	y.domain(d3.extent(data, function(d) { return d[currselection]; }));
 
@@ -240,7 +260,7 @@ d3.csv("vis01_data.csv", accessor, function(error, data) {
 	    .duration(0)
     	    .attr("stroke", function(d) {
 		if( d[0]["team"] == "tam") { 
-		    if ( d[0]['year'] == "2012" ) { return "#B20032"; }
+		    if ( d[0]['year'] == "2012" ) { return "#A71930" }
 		    else { return "#FF7A00"; } }
 		else if ( d[0]["teamyear"] == currteamyear ) { return "#000"; }
 		else if ( d[0]['year'] == "2013" ) { return "#444"; }
