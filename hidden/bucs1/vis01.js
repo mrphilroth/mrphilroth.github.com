@@ -115,7 +115,7 @@ d3.csv("vis01_data.csv", accessor, function(error, data) {
 
     headersvg.append("text")
     	.attr("class", "headertext")
-	.attr("dx", "3.8em")
+	.attr("dx", "3.7em")
 	.attr("dy", ".9em")
 	.text("CUMULATIVE DEFENSIVE STATS");
 
