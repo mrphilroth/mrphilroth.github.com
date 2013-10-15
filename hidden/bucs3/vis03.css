@@ -1,0 +1,81 @@
+.headerdiv {
+    text-align:center;
+}
+
+.headertext {
+    font-size: 34px;
+    text-align: center;
+    font-weight: normal;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    font: 10px sans-serif;
+}
+
+.bar rect {
+    fill: steelblue;
+    shape-rendering: crispEdges;
+}
+
+.bar text {
+    fill: #fff;
+}
+
+.axis path, .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.buttondiv {
+    margin: 0px 0px 0px 75px;
+}
+
+.statbutton {
+    float: left;
+    display: inline;
+    overflow: hidden;
+    height: 45px;
+    width: 200px;
+    list-style-type: none;
+    padding: 8px 5px;
+    background: #A71930;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    font-size: 13px;
+    font-weight: normal;
+    border-right: solid 2px white;
+    border-left: solid 2px white;
+    border-top: solid 2px white;
+    border-bottom: solid 2px white;
+}
+
+.statbutton-highlight {
+    border-right: solid 2px gray;
+    border-left: solid 2px gray;
+    border-top: solid 2px gray;
+    border-bottom: solid 2px gray;
+}
+
+.statbutton-selected {
+    float: left;
+    display: inline;
+    overflow: hidden;
+    height: 45px;
+    width: 200px;
+    list-style-type: none;
+    padding: 8px 5px;
+    background: #841527;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    font-size: 13px;
+    font-weight: normal;
+    border-right: solid 2px black;
+    border-left: solid 2px black;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+}
+
