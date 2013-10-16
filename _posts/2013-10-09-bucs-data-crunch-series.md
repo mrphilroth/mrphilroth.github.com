@@ -4,9 +4,9 @@ title: "Bucs Data Crunch Series"
 category: data
 ---
 
-I've been creating some interactive graphics for the Tampa Bay
-Buccaneers. I'm going to update this post with thumbnails and links as
-they get posted. Enjoy!
+I've been creating some interactive graphics for the [Tampa Bay
+Buccaneers](http://www.buccaneers.com/). I'm going to update this post
+with thumbnails and links as they get posted. Enjoy!
 
 October 8th, 2013:
 
