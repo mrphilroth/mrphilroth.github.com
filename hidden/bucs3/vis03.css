@@ -1,4 +1,4 @@
-.headerdiv {
+.headerdiv, .filterdiv, .statdiv {
     text-align:center;
 }
 
@@ -9,17 +9,47 @@
     font-family: Arial, sans-serif;
 }
 
-body {
-    font: 10px sans-serif;
+.filtertext {
+    font-size: 15px;
+    text-align: center;
+    font-weight: normal;
+    font-family: Arial, sans-serif;
+}
+
+.stattext {
+    font-size: 15px;
+    text-align: center;
+    font-weight: normal;
+    font-family: Arial, sans-serif;
+}
+
+.legendtext {
+    font-size: 15px;
+    font-weight: normal;
+    font-family: Arial, sans-serif;
 }
 
 .bar rect {
-    fill: steelblue;
     shape-rendering: crispEdges;
 }
 
-.bar text {
-    fill: #fff;
+.sdgrect {
+    fill: #0F83B8;
+}
+
+.tamrect {
+    fill: #A71930;
+}
+
+.gamerect {
+    fill: #FF7A00;
+    stroke: black;
+    stroke-width: 2px;
+}
+
+.tick text {
+    font-size: 13px;
+    font-family: Arial, sans-serif;
 }
 
 .axis path, .axis line {
@@ -28,16 +58,28 @@ body {
     shape-rendering: crispEdges;
 }
 
-.buttondiv {
-    margin: 0px 0px 0px 75px;
+.statbuttondiv {
+    margin: 0px 0px 0px 100px;
+}
+
+.qbbuttondiv {
+    margin: 0px 0px 0px 180px;
+}
+
+.yearbuttondiv {
+    margin: 0px 0px 0px 190px;
+}
+
+.playoffbuttondiv {
+    margin: 0px 0px 0px 340px;
 }
 
 .statbutton {
     float: left;
     display: inline;
     overflow: hidden;
-    height: 45px;
-    width: 200px;
+    height: 36px;
+    width: 180px;
     list-style-type: none;
     padding: 8px 5px;
     background: #A71930;
@@ -60,19 +102,46 @@ body {
 }
 
 .statbutton-selected {
+    background: #841527;
+    border-right: solid 2px black;
+    border-left: solid 2px black;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+}
+
+.qbbutton {
+    width: 140px;
+}
+
+.yearbutton {
+    width: 60px;
+}
+
+.playoffbutton {
+    width: 120px;
+}
+
+.filterbutton {
     float: left;
     display: inline;
     overflow: hidden;
-    height: 45px;
-    width: 200px;
+    height: 36px;
     list-style-type: none;
     padding: 8px 5px;
-    background: #841527;
+    background: #A71930;
     text-align: center;
     font-family: Arial, sans-serif;
     color: white;
     font-size: 13px;
     font-weight: normal;
+    border-right: solid 2px white;
+    border-left: solid 2px white;
+    border-top: solid 2px white;
+    border-bottom: solid 2px white;
+}
+
+.filterbutton-highlight {
+    background: #841527;
     border-right: solid 2px black;
     border-left: solid 2px black;
     border-top: solid 2px black;
