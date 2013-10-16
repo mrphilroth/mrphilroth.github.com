@@ -316,17 +316,17 @@ d3.csv("vis03_data.csv", accessor, function(error, data) {
 
 	svg.select(".x.axis")
 	    .transition()
-	    .duration(1000)
+	    .duration(250)
 	    .call(xAxis);
 
 	svg.selectAll(".histrect")
 	    .transition()
-	    .duration(1000)
+	    .duration(250)
 	    .attr("width", xbinwidth - 1);
 
 	svg.selectAll(".bar")
 	    .transition()
-	    .duration(1000)
+	    .duration(250)
 	    .attr("transform", function(d) { return "translate(" +
 					     (x(d[currstat + 'bincenter']) - xbinwidth / 2) + "," +
 					     (y(d[currstat + 'binnum']) - y(1) + y(2) + 1) + ")"; });
