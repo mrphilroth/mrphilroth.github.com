@@ -1,4 +1,4 @@
-var margin = {top: 10, right: 70, bottom: 30, left: 70},
+var margin = {top: 10, right: 70, bottom: 40, left: 70},
 width = 960 - margin.left - margin.right,
 height = 450 - margin.top - margin.bottom;
 
@@ -13,6 +13,11 @@ var histdata = {'tds':{'binwidth':1, 'fbc':0},
 		'recs':{'binwidth':1, 'fbc':0},
 		'yards':{'binwidth':20, 'fbc':10},
 		'fanpts':{'binwidth':2, 'fbc':1}};
+
+var xlabeldata = {"recs":"Receptions",
+		  "yards":"Yards",
+		  "tds":"Touchdowns",
+		  "fanpts":"Fantasy Points"};
 
 var statbuttondata = [{"name":"Receptions",
 		       "variable":"recs"},
@@ -190,6 +195,17 @@ d3.csv("vis03_data.csv", accessor, function(error, data) {
 	.tickFormat(d3.format("d"))
 	.orient("bottom");
 
+    svg.append("text")
+	.attr("class", "xlabel")
+	.attr("x", 80)
+	.attr("y", height + 37)
+	.text(xlabeldata[currstat]);
+
+    svg.append("text")
+    	.attr("class", "ylabel")
+     	.attr("transform", "rotate(270 172,180)")
+     	.text("Number of Games");
+
     var bar = svg.selectAll(".bar")
 	.data(data)
 	.enter()
@@ -306,6 +322,11 @@ d3.csv("vis03_data.csv", accessor, function(error, data) {
 	    .tickValues(tickdata[currstat])
 	    .tickFormat(d3.format("d"))
 	    .orient("bottom");
+
+	svg.selectAll(".xlabel")
+	    .transition()
+	    .duration(0)
+	    .text(xlabeldata[currstat]);
 
 	statbuttondiv.selectAll("input")
 	    .transition()
