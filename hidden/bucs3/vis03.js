@@ -1,5 +1,5 @@
 var margin = {top: 10, right: 70, bottom: 40, left: 70},
-width = 960 - margin.left - margin.right,
+width = 900 - margin.left - margin.right,
 height = 450 - margin.top - margin.bottom;
 
 var currstat = "recs";
@@ -61,7 +61,7 @@ var playoffbuttondata = [{"name":"Playoff Games",
 			 {"name":"Regular Season",
 			  "variable":"0"}];
 
-var legenddata = [{"name":"Oct. 13, 2013 Game",
+var legenddata = [{"name":"Last Two Games",
 		   "color":"#FF7A00",
 		   "stroke":"#000000",
 		   "stroke-width":2},
@@ -218,7 +218,7 @@ d3.csv("vis03_data.csv", accessor, function(error, data) {
     bar.append("rect")
 	.attr("class", function(d) {  
 	    if ( d["team"] == "tam" ) {
-		if ( d["date"] == "201310130" ) { return "histrect gamerect"; }
+		if ( d["date"] == "201310130" || d["date"] == "201310200" ) { return "histrect gamerect"; }
 	        else { return "histrect tamrect"; } }
 	    else { return "histrect sdgrect"; } } )
 	.attr("x", 1)
