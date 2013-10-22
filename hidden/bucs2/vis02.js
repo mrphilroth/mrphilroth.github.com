@@ -1,6 +1,6 @@
-var margin = {top: 70, right: 50, bottom: 30, left: 40},
+var margin = {top: 20, right: 120, bottom: 50, left: 50},
 width = 900 - margin.left - margin.right,
-height = 480 - margin.top - margin.bottom;
+height = 500 - margin.top - margin.bottom;
 
 var currstat = "RushAtt";
 
@@ -28,13 +28,17 @@ var gamedict = {'201209090tam':{'year':2012, 'game':1, 'id':1},
 		'201310200atl':{'year':2013, 'game':6, 'id':22}}
 
 var legenddata = [{"name":"1st Down",
-		   "color":"blue"},
+		   "color":"#A71930",
+		   "down":1},
 		  {"name":"2nd Down",
-		   "color":"red"},
+		   "color":"#89765f",
+		   "down":2},
 		  {"name":"3rd Down",
-		   "color":"yellow"},
+		   "color":"#FF7A00",
+		   "down":3},
 		  {"name":"4th Down",
-		   "color":"green"}]
+		   "color":"#000000",
+		   "down":4}]
     
 var statbuttondata = [{"name":"Rushing Attempts",
 		       "variable":"RushAtt"},
@@ -45,13 +49,19 @@ var statbuttondata = [{"name":"Rushing Attempts",
 		      {"name":"Receiving Yards",
 		       "variable":"PassYds"}];
 
+
+var ylabeltext = {"RushAtt":"Rushing Attempts",
+		  "RushYds":"Rushing Yards",
+		  "PassCmp":"Receptions",
+		  "PassYds":"Receiving Yards"};
+
 var x = d3.scale.ordinal()
     .rangeRoundBands([0, width]);
 
 var y = d3.scale.linear()
     .range([height, 0]);
 
-var z = d3.scale.ordinal().range(["blue", "red", "yellow", "green"]);
+var z = d3.scale.ordinal().range(["#A71930", "#89765f", "#FF7A00", "#000000",]);
 
 var headersvg = d3.select("body").append("svg")
     .attr("width", width + margin.left)
@@ -62,15 +72,97 @@ var headersvg = d3.select("body").append("svg")
 
 headersvg.append("text")
     .attr("class", "headertext")
-    .attr("dx", "4.3em")
+    .attr("dx", "3.8em")
     .attr("dy", ".8em")
-    .text("DOUG MARTIN CAREER STATS");
+    .text("DOUG MARTIN PRODUCTION");
 
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var defs = svg.append("defs");
+    
+var pat1 = defs.append("pattern")
+    .attr("id", "stripe1")
+    .attr("patternUnits", "userSpaceOnUse")
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("width", 10)
+    .attr("height", 10);
+
+pat1.append("rect")
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("width", 10)
+    .attr("height", 10)
+    .attr("fill", function(d) { return z(0); });
+
+pat1.append("path")
+    .attr("d", "M0 0 L10 10 M0 10 M0 0")
+    .attr("stroke", "white")
+    .attr("stroke-width", 1);
+
+var pat2 = defs.append("pattern")
+    .attr("id", "stripe2")
+    .attr("patternUnits", "userSpaceOnUse")
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("width", 10)
+    .attr("height", 10);
+
+pat2.append("rect")
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("width", 10)
+    .attr("height", 10)
+    .attr("fill", function(d) { return z(1); });
+
+pat2.append("path")
+    .attr("d", "M0 0 L10 10 M0 10 M0 0")
+    .attr("stroke", "white")
+    .attr("stroke-width", 1);
+
+var pat3 = defs.append("pattern")
+    .attr("id", "stripe3")
+    .attr("patternUnits", "userSpaceOnUse")
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("width", 10)
+    .attr("height", 10);
+
+pat3.append("rect")
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("width", 10)
+    .attr("height", 10)
+    .attr("fill", function(d) { return z(2); });
+
+pat3.append("path")
+    .attr("d", "M0 0 L10 10 M0 10 M0 0")
+    .attr("stroke", "white")
+    .attr("stroke-width", 1);
+
+var pat4 = defs.append("pattern")
+    .attr("id", "stripe4")
+    .attr("patternUnits", "userSpaceOnUse")
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("width", 10)
+    .attr("height", 10);
+
+pat4.append("rect")
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("width", 10)
+    .attr("height", 10)
+    .attr("fill", function(d) { return z(3); });
+
+pat4.append("path")
+    .attr("d", "M0 0 L10 10 M0 10 M0 0")
+    .attr("stroke", "white")
+    .attr("stroke-width", 1);
 
 var statbuttondiv = d3.select("body")
     .append("div")
@@ -120,35 +212,98 @@ d3.csv("vis02_data.csv", accessor, function(error, data) {
 	.style("fill", function(d, i) { return z(i); })
 	.style("stroke", function(d, i) { return d3.rgb(z(i)).darker(); });
 
-    // Add a rect for each date.
     var rect = glayer.selectAll("rect")
 	.data(Object)
 	.enter().append("svg:rect")
 	.attr("x", function(d) { return x(gamedict[d['gameid']]['id']) + 5; })
 	.attr("y", function(d) { return y(d.y0 + d.y); })
+	.attr("stroke-width", 0)
+	.attr("fill", function(d, i) { if ( d.back == 'mj' ) { return "url(#stripe" + (d.Down) + ")"; } })
 	.attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y); })
-	.attr("width", x.rangeBand() - x.rangeBand() / 3)
-	.attr("opacity", function(d) { if ( d.back == 'dm' ) { return 1.0; }
-				       else return 0.5; } );
+	.attr("width", x.rangeBand() - x.rangeBand() / 3);
 
-    var legend = svg.selectAll('.legend')
+    var dmyoffset = 120;
+    var mjyoffset = 270;
+
+    svg.append("text")
+    	.attr("class", "legendheader")
+	.attr("x", 763)
+	.attr("y", dmyoffset - 25)
+     	.text("Doug Martin");
+
+    svg.append("text")
+    	.attr("class", "legendheader")
+	.attr("x", 763)
+	.attr("y", mjyoffset - 25)
+        .text("Mike James");
+
+    var dmlegend = svg.selectAll('.dmlegend')
         .data(legenddata)
         .enter()
 	.append('g')
-        .attr('class', 'legend');
+        .attr('class', 'dmlegend');
 
-    legend.append('rect')
-        .attr('x', 30)
-        .attr('y', function(d, i){ return (i *  22) - 57;})
+    dmlegend.append('rect')
+        .attr('x', 760)
+        .attr('y', function(d, i){ return (i *  22) + dmyoffset - 12;})
         .attr('width', 12)
         .attr('height', 12)
         .style('fill', function(d) { return d["color"]; });
     
-    legend.append('text')
+    dmlegend.append('text')
 	.attr("class", "legendtext")
-        .attr('x', 52)
-        .attr('y', function(d, i){ return (i *  22) - 45;})
+        .attr('x', 780)
+        .attr('y', function(d, i){ return (i *  22) + dmyoffset; })
         .text(function(d){ return d["name"]; });
+
+    var mjlegend = svg.selectAll('.mjlegend')
+        .data(legenddata)
+        .enter()
+	.append('g')
+        .attr('class', 'mjlegend');
+
+    mjlegend.append('rect')
+        .attr('x', 760)
+        .attr('y', function(d, i){ return (i *  22) + mjyoffset - 12;})
+        .attr('width', 12)
+        .attr('height', 12)
+        .style('fill', function(d) { return "url(#stripe" + (d.down) + ")"; });
+    
+    mjlegend.append('text')
+	.attr("class", "legendtext")
+        .attr('x', 780)
+        .attr('y', function(d, i){ return (i *  22) + mjyoffset; })
+        .text(function(d){ return d["name"]; });
+
+    svg.append("text")
+	.attr("class", "xlabel")
+	.attr("x", 80)
+	.attr("y", height + 37)
+	.text("Game");
+
+    svg.append("text")
+    	.attr("class", "ylabel")
+     	.attr("transform", "rotate(270 180,208)")
+     	.text(ylabeltext[currstat]);
+
+    svg.append('path')
+	.attr('class', 'yeardivide')
+	.attr('d', 'M529 168 L529 467')
+	.attr('stroke', 'black')
+	.attr('stroke-width', 2)
+	.attr('stroke-dasharray', '7,7');
+
+    svg.append('text')
+	.attr('class', 'yeartext')
+	.attr('x', 490)
+	.attr('y', 467)
+	.text('2013');
+
+    svg.append('text')
+	.attr('class', 'yeartext')
+	.attr('x', 535)
+	.attr('y', 467)
+	.text('2012');
 
     statbuttondiv.selectAll("input")
 	.data(statbuttondata)
@@ -168,6 +323,11 @@ d3.csv("vis02_data.csv", accessor, function(error, data) {
 
 	var currstat = stat;
 
+	svg.selectAll(".ylabel")
+	    .transition()
+	    .duration(0)
+	    .text(ylabeltext[currstat]);
+
 	var stack = d3.layout.stack()
     	    .x( function(d) { return gamedict[d['gameid']]['id']; })
     	    .y( function(d) { return d[currstat]; })
@@ -178,7 +338,6 @@ d3.csv("vis02_data.csv", accessor, function(error, data) {
 	var layers = stack(d3.values(dnest));
 
 	y.domain([0, d3.max(layers[layers.length - 1], function(d) { return d.y0 + d.y; })]);
-
 
 	svg.select(".y.axis")
 	    .transition()

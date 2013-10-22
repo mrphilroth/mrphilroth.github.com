@@ -15,6 +15,18 @@
     font-family: Arial, sans-serif;
 }
 
+.legendheader {
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+.yeartext {
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
 .xlabel, .ylabel {
     font-size: 16px;
     font-family: Arial, sans-serif;
@@ -32,7 +44,7 @@
 }
 
 .statbuttondiv {
-    margin: 0px 0px 0px 80px;
+    margin: 0px 0px 0px 55px;
 }
 
 .statbutton {
