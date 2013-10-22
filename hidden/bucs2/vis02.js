@@ -42,7 +42,7 @@ var legenddata = [{"name":"1st Down",
     
 var statbuttondata = [{"name":"Rushing Attempts",
 		       "variable":"RushAtt"},
-		      {"name":"Rusing Yards",
+		      {"name":"Rushing Yards",
 		       "variable":"RushYds"},
 		      {"name":"Receptions",
 		       "variable":"PassCmp"},
@@ -295,15 +295,15 @@ d3.csv("vis02_data.csv", accessor, function(error, data) {
 
     svg.append('text')
 	.attr('class', 'yeartext')
-	.attr('x', 490)
-	.attr('y', 467)
-	.text('2013');
+	.attr('x', 488)
+	.attr('y', 469)
+	.text('2012');
 
     svg.append('text')
 	.attr('class', 'yeartext')
-	.attr('x', 535)
-	.attr('y', 467)
-	.text('2012');
+	.attr('x', 536)
+	.attr('y', 469)
+	.text('2013');
 
     statbuttondiv.selectAll("input")
 	.data(statbuttondata)
