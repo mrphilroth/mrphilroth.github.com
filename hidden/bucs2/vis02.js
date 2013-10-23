@@ -4,6 +4,11 @@ height = 500 - margin.top - margin.bottom;
 
 var currstat = "RushAtt";
 
+var textboxdata = {"RushAtt":"Rushing Attempts: Martin's rushing attempts fluctuated significantly during his first six games as a Buccaneer, but the team's reliance on his production in the middle of the 2012 season coincided with a dramatic increase in offensive production and a winning streak.  In 2013, the Buccaneers rode Martin right out of the gate, giving him the ball between 20 and 29 times in each of the first four games, the longest streak of 20-carry games in his career to that point.",
+		   "RushYds":"Rushing Yards: Martin's incredible team-record performance in Oakland – 251 yards on 25 carries, produced a column in this chart that towers obviously above the rest.  Still, in a stretch of the sixth game through the 18th game of his career, Martin can be seen soaring past the 100-yard mark six times.  This graph also provides visual evidence that the majority of Martin's yards have come on first-down runs.",
+		   "PassCmp":"Receptions: One might expect much more variance here, but in fact Martin has been successfully targeted in the passing game on a very consistent basis through his first season and a half.  The variance comes more in the situations that Martin caught his passes; in some games there is an effort to get him the football in space on first down; in others, he is catching most of his passes on second or third down, likely as a check-down option in many instances.  One can see that the Bucs chose to throw the ball to Martin less – or at least, succeeded in doing so less often – through the first three games of this season, but those numbers went back to their established 2012 norms when rookie Mike Glennon took over under center in Game Four.",
+		   "PassYds":"Receiving Yards: This chart suggests that there is quite a bit more potential for Martin in the passing game than the Bucs have been able to take advantage of so far in 2013.  From the fifth through the 12th game of the 2012 season – a stretch that included five of the seven wins the team has during Martin's tenure – Martin's receiving yardage total was between moderate and very good in every game."};
+
 var gamedict = {'201209090tam':{'year':2012, 'game':1, 'id':1},
 		'201209160nyg':{'year':2012, 'game':2, 'id':2},
 		'201209230dal':{'year':2012, 'game':3, 'id':3},
@@ -49,7 +54,6 @@ var statbuttondata = [{"name":"Rushing Attempts",
 		      {"name":"Receiving Yards",
 		       "variable":"PassYds"}];
 
-
 var ylabeltext = {"RushAtt":"Rushing Attempts",
 		  "RushYds":"Rushing Yards",
 		  "PassCmp":"Receptions",
@@ -72,7 +76,7 @@ var headersvg = d3.select("body").append("svg")
 
 headersvg.append("text")
     .attr("class", "headertext")
-    .attr("dx", "3.8em")
+    .attr("dx", "4.4em")
     .attr("dy", ".8em")
     .text("DOUG MARTIN PRODUCTION");
 
@@ -167,6 +171,13 @@ pat4.append("path")
 var statbuttondiv = d3.select("body")
     .append("div")
     .attr("class", "statbuttondiv");
+
+d3.select("body").append("br");
+d3.select("body").append("br");
+d3.select("body").append("br");
+
+var textareadiv = d3.select("body").append("div")
+    .attr("class", "textareadiv");
 
 d3.csv("vis02_data.csv", accessor, function(error, data) {
 
@@ -295,13 +306,13 @@ d3.csv("vis02_data.csv", accessor, function(error, data) {
 
     svg.append('text')
 	.attr('class', 'yeartext')
-	.attr('x', 488)
+	.attr('x', 484)
 	.attr('y', 469)
 	.text('2012');
 
     svg.append('text')
 	.attr('class', 'yeartext')
-	.attr('x', 536)
+	.attr('x', 540)
 	.attr('y', 469)
 	.text('2013');
 
@@ -319,6 +330,10 @@ d3.csv("vis02_data.csv", accessor, function(error, data) {
 	.on("mouseover", function() { d3.select(d3.event.target).classed("statbutton-highlight", true); })
 	.on("mouseout", function() { d3.select(d3.event.target).classed("statbutton-highlight", false); });
 
+    textareadiv.append("p")
+    	.attr("class", "textareap")
+	.text(function() { return textboxdata[currstat]; });
+
     function update_stat(stat) {
 
 	var currstat = stat;
@@ -327,6 +342,11 @@ d3.csv("vis02_data.csv", accessor, function(error, data) {
 	    .transition()
 	    .duration(0)
 	    .text(ylabeltext[currstat]);
+
+	textareadiv.selectAll("p")
+	    .transition()
+	    .duration(0)
+	    .text(function() { return textboxdata[currstat]; });
 
 	var stack = d3.layout.stack()
     	    .x( function(d) { return gamedict[d['gameid']]['id']; })
