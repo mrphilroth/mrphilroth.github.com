@@ -238,13 +238,13 @@ d3.csv("vis02_data.csv", accessor, function(error, data) {
 
     svg.append("text")
     	.attr("class", "legendheader")
-	.attr("x", 763)
+	.attr("x", 745)
 	.attr("y", dmyoffset - 25)
      	.text("Doug Martin");
 
     svg.append("text")
     	.attr("class", "legendheader")
-	.attr("x", 763)
+	.attr("x", 745)
 	.attr("y", mjyoffset - 25)
         .text("Mike James");
 
@@ -255,7 +255,7 @@ d3.csv("vis02_data.csv", accessor, function(error, data) {
         .attr('class', 'dmlegend');
 
     dmlegend.append('rect')
-        .attr('x', 760)
+        .attr('x', 745)
         .attr('y', function(d, i){ return (i *  22) + dmyoffset - 12;})
         .attr('width', 12)
         .attr('height', 12)
@@ -263,7 +263,7 @@ d3.csv("vis02_data.csv", accessor, function(error, data) {
     
     dmlegend.append('text')
 	.attr("class", "legendtext")
-        .attr('x', 780)
+        .attr('x', 765)
         .attr('y', function(d, i){ return (i *  22) + dmyoffset; })
         .text(function(d){ return d["name"]; });
 
@@ -274,7 +274,7 @@ d3.csv("vis02_data.csv", accessor, function(error, data) {
         .attr('class', 'mjlegend');
 
     mjlegend.append('rect')
-        .attr('x', 760)
+        .attr('x', 745)
         .attr('y', function(d, i){ return (i *  22) + mjyoffset - 12;})
         .attr('width', 12)
         .attr('height', 12)
@@ -282,7 +282,7 @@ d3.csv("vis02_data.csv", accessor, function(error, data) {
     
     mjlegend.append('text')
 	.attr("class", "legendtext")
-        .attr('x', 780)
+        .attr('x', 765)
         .attr('y', function(d, i){ return (i *  22) + mjyoffset; })
         .text(function(d){ return d["name"]; });
 
