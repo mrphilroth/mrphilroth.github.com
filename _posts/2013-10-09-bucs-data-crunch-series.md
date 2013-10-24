@@ -8,6 +8,15 @@ I've been creating some interactive graphics for the [Tampa Bay
 Buccaneers](http://www.buccaneers.com/). I'm going to update this post
 with thumbnails and links as they get posted. Enjoy!
 
+October 24th, 2013:
+
+<a href="http://www.buccaneers.com/news/article-graphics/Data-Crunch-Martins-Production/56c2eddf-b4e1-49d4-ac0a-7837b4ae7da5">
+<img src="/images/bucsdatacrunch_3.png"
+     alt="Bucs Data Crunch Week 3"
+     border="1" width="600">
+</a>
+
+
 October 17th, 2013:
 
 <a href="http://www.buccaneers.com/news/article-graphics/Data-Crunch-Jacksons-Peak-Games/2be014ff-3d94-434a-b2a0-eff0ecc61e1c">
