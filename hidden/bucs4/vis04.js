@@ -98,7 +98,7 @@ var statbuttondiv = d3.select("body")
 var yearsvg = d3.select("body")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
-    .attr("height", 80)
+    .attr("height", 110)
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + 10 + ")");
 
@@ -186,9 +186,15 @@ d3.csv("vis04_data.csv", accessor, function(error, data) {
     	.on("mouseover", function() { d3.select(d3.event.target).classed("statbutton-highlight", true); })
     	.on("mouseout", function() { d3.select(d3.event.target).classed("statbutton-highlight", false); });
 
-    var yearylevel = 40;
+    var yearylevel = 65;
     var yearxlevel = 355;
     var xdiff = 60;
+
+    var yearexplaintext = yearsvg.append("text")
+	.attr("class", "legendtext")
+	.attr("x", -10)
+	.attr("y", 23)
+    	.text("Click arrows or use arrow keys to scroll through years:");
 
     var yeartext = yearsvg.append("text")
 	.attr("class", "yeartext")
