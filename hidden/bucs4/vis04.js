@@ -8,7 +8,7 @@ var currstat = "wpa";
 var statdict = {"wpa":{"name":"+WPA", "text":"Advanced NFL Stats ranks linebackers by +WPA, or total win probability added. Lavonte David is the second best linebacker in the league this year according to this statistic."},
 		"epa":{"name":"+EPA", "text":"Advanced NFL Stats also compiles +EPA or the expected points added. Lavonte David is the fifth best linebacker in the league this year according to this statistic."},
 		"sk":{"name":"Sacks", "text":"Lavonte David's five sacks ranks highly in the league this year."},
-		"qbhit":{"name":"QB Hits", "text":"Of the 10 linebackers in the NFL in QB hits, David is the only one who plays in a 4-3 defensive front. The others are all 3-4 pass-rushing linebackers."},
+		"qbhit":{"name":"QB Hits", "text":"Of the top 10 linebackers in the NFL in QB hits, David is the only one who plays in a 4-3 defensive front. The others are all 3-4 pass-rushing linebackers."},
 		"tkl":{"name":"Tackles", "text":"Lavonte David's 46 tackles is sixth best in the league this year among linebackers."},
 		"int":{"name":"Interceptions", "text":"Each top linebacker on the Bucs has one interception this year so far."},
 		"pd":{"name":"Pass Defense", "text":"Lavonte David and Mason Foster have 5 and 4 pass defenses respectively."}};
