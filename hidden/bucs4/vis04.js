@@ -20,6 +20,10 @@ var legenddata = [{"name":"Top 100 Linebackers",
 		  {"name":"Pro Bowl Linebackers",
 		   "color":"#FF7A00",
 		   "stroke":"#000000",
+		   "stroke-width":1.5},
+		  {"name":"Tampa Bay Buccaneer",
+		   "color":"#A71930",
+		   "stroke":"#000000",
 		   "stroke-width":1.5}];
 
 var teamdata = {"DAL":{"city":"Dallas", "team":"Cowboys"},
@@ -55,6 +59,10 @@ var teamdata = {"DAL":{"city":"Dallas", "team":"Cowboys"},
 		"OAK":{"city":"Oakland", "team":"Raiders"},
 		"TB":{"city":"Tampa Bay", "team":"Buccaneers"}};
 
+var colors = {"default":"#89765f",
+	      "probowl":"#FF7A00",
+	      "buc":"#A71930"};
+
 var x = d3.scale.linear()
     .range([0, width]);
 
@@ -63,9 +71,6 @@ var y = d3.scale.linear()
 
 var r = d3.scale.linear()
     .range([0, 40]);
-
-var z = d3.scale.ordinal()
-    .range(["#89765f", "#FF7A00"]);
 
 var headersvg = d3.select("body").append("svg")
     .attr("width", width + margin.left)
@@ -130,7 +135,10 @@ d3.csv("vis04_data.csv", accessor, function(error, data) {
 	.attr("cx", function(d) { return x(order.indexOf(d) % 20); })
 	.attr("cy", function(d) { return y(Math.floor(order.indexOf(d) / 20)); })
 	.attr("r", function(d) { return r(ynest[curryear][d][0][currstat]); })
-	.attr("fill", function(d) { return z(ynest[curryear][d][0]["probowl"]); })
+	.attr("fill", function(d) { 
+	    if( ynest[curryear][d][0]["probowl"] == 1 ) { return colors["probowl"]; }
+	    else if ( ynest[curryear][d][0]["team"] == "TB" ) { return colors["buc"]; }
+	    else { return colors["default"] }})
     	.on("click", function(d) {
 	    if( d3.event.target.classList.contains("circleclass-highlight") ) {
 		d3.select(d3.event.target).classed("circleclass-highlight", false); 
@@ -139,7 +147,7 @@ d3.csv("vis04_data.csv", accessor, function(error, data) {
 
     var explaintext = svg.append("text")
 	.attr("class", "legendtext")
-	.attr("x", 10)
+	.attr("x", -10)
 	.attr("y", -79)
     	.text("Click circles to add/remove highlight:");
 
@@ -150,7 +158,7 @@ d3.csv("vis04_data.csv", accessor, function(error, data) {
         .attr('class', 'legend');
 
     legend.append('rect')
-        .attr('x', function(d, i){ return i *  170 + 395;})
+        .attr('x', function(d, i){ return i *  170 + 270;})
         .attr('y', -90)
         .attr('width', 14)
         .attr('height', 14)
@@ -160,7 +168,7 @@ d3.csv("vis04_data.csv", accessor, function(error, data) {
     
     legend.append('text')
 	.attr("class", "legendtext")
-        .attr('x', function(d, i){ return i *  170 + 415;})
+        .attr('x', function(d, i){ return i *  170 + 290;})
         .attr('y', -77)
         .text(function(d){ return d["name"]; });
 
@@ -268,7 +276,10 @@ d3.csv("vis04_data.csv", accessor, function(error, data) {
 	    .attr("cx", function(d) { return x(order.indexOf(d) % 20); })
 	    .attr("cy", function(d) { return y(Math.floor(order.indexOf(d) / 20)); })
 	    .attr("r", function(d) { return r(ynest[curryear][d][0][currstat]); })
-	    .attr("fill", function(d) { return z(ynest[curryear][d][0]["probowl"]); });
+	    .attr("fill", function(d) { 
+		if( ynest[curryear][d][0]["probowl"] == 1 ) { return colors["probowl"]; }
+		else if ( ynest[curryear][d][0]["team"] == "TB" ) { return colors["buc"]; }
+		else { return colors["default"] }});
 
 	yeartext.transition()
 	    .duration(0)
