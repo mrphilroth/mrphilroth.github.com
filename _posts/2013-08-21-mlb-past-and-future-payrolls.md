@@ -26,7 +26,7 @@ The image below is a link to the visualization:
 <a href="/mlbpayrolls">
 <img src="/images/mlbpayrolls_thumbnail.png"
      alt="MLB Payrolls Thumbnail"
-     border="1" width="600" height="413">
+     border="1" width="600">
 </a>
 
 The first thing you can do is to click the arrows or use the left and
