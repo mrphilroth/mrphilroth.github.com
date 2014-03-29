@@ -91,6 +91,10 @@ var teamname = {
     "SFG":"San Francisco Giants", "STL":"St. Louis Cardinals", "TBR":"Tampa Bay Rays",
     "TEX":"Texas Rangers", "TOR":"Toronto Blue Jays", "WSN":"Washington Nationals" };
 
+// Position colors
+var poscolor = d3.scale.category10()
+    .domain([7, 8, 3, 1, 4, 5, 9, 0, 2, 6])
+
 var botteam = "LAD"
 var currplayer = ""
 var currposition = ""
@@ -104,9 +108,9 @@ d3.json("team_data.json", function(terror, tdata) {
 	// Compute the extent of the data set in years.
 	var year0 = d3.min(d3.keys(tdata));
 	year1 = d3.max(d3.keys(tdata));
-	year = 2013;
+	year = 2014;
 
-	// The highest yearly payroll (Congrats 2013 Dodgers!)
+	// The highest yearly payroll (Congrats 2014 Dodgers!)
 	var maxpay = d3.max(d3.values(tdata), function(year) {
     	    return d3.max(d3.values(year), function(teamnode) {
     		return teamnode['payroll'];
@@ -140,7 +144,7 @@ d3.json("team_data.json", function(terror, tdata) {
     	    .attr("fill", "#000")
     	    .style("font-size", "46px")
     	    .style("font", "300 Helvetica Neue")
-    	    .text("2013");
+    	    .text(year);
 
 	// Add clickable arrows
 	var leftarrow = topsvg.append("polygon")
@@ -165,7 +169,7 @@ d3.json("team_data.json", function(terror, tdata) {
     	    .attr("transform", function(team) { return "translate(" + topX(team) + ",0)"; });
 
 	currTeamCon.selectAll("rect")
-    	    .data(function(team) { return [tdata[2013][team]]; })
+    	    .data(function(team) { return [tdata[year][team]]; })
     	    .enter().append("rect")
     	    .attr("fill-opacity", 0)
     	    .attr("x", -topBarWidth / 2)
@@ -217,14 +221,14 @@ d3.json("team_data.json", function(terror, tdata) {
     	    if (!(year in tdata)) return;
     	    yeartext.text(year);
 
-    	    if(year <= 2013) {
+    	    if(year <= 2014) {
     		topX.domain(allteams.sort(function(a, b) {
     		    return tdata[year][a]['payroll'] - tdata[year][b]['payroll'];
     		}));
     		var currfillop = 0;
     	    } else { 
     		topX.domain(allteams.sort(function(a, b) {
-    		    return tdata[2013][a]['payroll'] - tdata[2013][b]['payroll'];
+    		    return tdata[2014][a]['payroll'] - tdata[2014][b]['payroll'];
     		}));
     		var currfillop = 0.4;
     	    }
@@ -371,9 +375,6 @@ d3.json("team_data.json", function(terror, tdata) {
     			"stroke-width" : "1px"
     		    });
 
-    	    // Position colors
-    	    var poscolor = d3.scale.category10()
-    		.domain([7, 8, 3, 1, 4, 5, 9, 0, 2, 6])
 
     	    // A player's layer and its properties
     	    var layer = botsvg.selectAll(".layer")
@@ -454,7 +455,7 @@ d3.json("team_data.json", function(terror, tdata) {
 		.attr("fill", "#666")
 		.style("font-size", "16px")
 		.style("font", "300 Helvetica Neue")
-		.text("Option years are transparent and included in team totals.");
+		.text("Option years are shaded and included in team totals.");
 
     	    function text_update() {
     		nametext.text(currplayer + "  (" + currposition + ")");
