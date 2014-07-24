@@ -5,7 +5,11 @@ title: phil roth
 
 <div id="home">
   <h1>Blog Posts</h1>
+
+
   <ul class="posts">
+    <li><span>22 Jul 2014</span> &raquo; <a href="http://endgame.com/blog/building-models-for-time-series-analysis.html">Building Models for Time Series Analysis</a></li>
+    <li><span>17 Jul 2014</span> &raquo; <a href="http://endgame.com/blog/time-series-analysis-for-network-security.html">Time Series Analysis for Network Security</a></li>
     {% for post in site.posts %}
     {% if post.competition == nil %}
       <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
@@ -22,13 +26,14 @@ title: phil roth
     {% endfor %}
   </ul>
 
-  <h1>Publications</h1>
+  <h1>Publications and Proceedings</h1>
   <ul class="posts">
+    <li><span>10 Jul 2014</span> &raquo; <a href="http://www.slideshare.net/mrphilroth/scipy2014">SciPy Presentation: Time Series Analysis for Network Security</a>
+                                         <a href="https://www.youtube.com/watch?v=ZSM-tmbBZ5E">(video)</a>
     <li><span>27 Jul 2012</span> &raquo; <a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?tp=&arnumber=6351218&contentType=Conference+Publications&refinements%3D4280452104%26queryText%3DGeoscience+and+Remote+Sensing+Symposium+.LB.IGARSS.RB.%2C+2012+IEEE+International">IGARSS Paper: Ionospheric Stripes in PALSAR data</a></li>
     <li><span>25 Jul 2010</span> &raquo; <a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=5653180&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D5653180">IGARSS Paper: Simulating SAR through the Ionosphere</a></li>
     <li><span>10 Feb 2010</span> &raquo; <a href="http://iopscience.iop.org/0004-637X/710/1/346">ApJ Paper: IceCube Search for Muon Neutrinos from GRBs</a></li>
     <li><span>15 Jun 2009</span> &raquo; <a href="http://drum.lib.umd.edu/handle/1903/9578">PhD Thesis: IceCube Search for Muon Neutrinos from GRBs</a></li>
   </ul>
-
 
 </div>
