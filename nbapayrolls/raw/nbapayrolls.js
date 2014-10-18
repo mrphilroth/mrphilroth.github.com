@@ -63,14 +63,13 @@ var poscolor = d3.scale.ordinal()
     .domain([0, 1, 2, 3, 4, 5])
     .range(poscolors);
 
-
-var allteams = ["ATL", "BOS", "CHA", "CHI", "CLE", "DAL", "DEN", "DET", "GSW",
+var allteams = ["ATL", "BOS", "CHO", "CHI", "CLE", "DAL", "DEN", "DET", "GSW",
 		"HOU", "IND", "LAC", "LAL", "MEM", "MIA", "MIL", "MIN", "BRK",
 		"NOP", "NYK", "OKC", "ORL", "PHI", "PHO", "POR", "SAC", "SAS",
 		"TOR", "UTA", "WAS"]
 
 var teamcolors = {
-    "ATL":"#D21033", "BOS":"#05854C", "CHA":"#29588B", "CHI":"#D4001F",
+    "ATL":"#D21033", "BOS":"#05854C", "CHO":"#29588B", "CHI":"#D4001F",
     "CLE":"#9F1425", "DAL":"#006AB5", "DEN":"#4393D1", "DET":"#006BB6",
     "GSW":"#FFC33C", "HOU":"#CC0000", "IND":"#FFC225", "LAC":"#EE2944",
     "LAL":"#F5AF1B", "MEM":"#001B41", "MIA":"#B62630", "MIL":"#00330A",
@@ -80,7 +79,7 @@ var teamcolors = {
     "UTA":"#001D4D", "WAS":"#004874" };
 
 var teamnames = {
-    "ATL":"Atlanta Hawks", "BOS":"Boston Celtics", "CHA":"Charolette Bobcats",
+    "ATL":"Atlanta Hawks", "BOS":"Boston Celtics", "CHO":"Charolette Bobcats",
     "CHI":"Chicago Bulls", "CLE":"Cleveland Cavaliers", "DAL":"Dallas Mavericks",
     "DEN":"Denver Nuggets", "DET":"Detroit Pistons", "GSW":"Golden State Warriors",
     "HOU":"Houston Rockets", "IND":"Indiana Pacers", "LAC":"Los Angeles Clippers",
@@ -95,8 +94,8 @@ var salarycaps = {
     1998:26900000, 1999:30000000, 2000:34000000, 2001:35500000, 2002:42500000,
     2003:40270000, 2004:43840000, 2005:43870000, 2006:49500000, 2007:53100000,
     2008:55600000, 2009:58680000, 2010:57700000, 2011:58044000, 2012:58000000,
-    2013:58000000, 2014:58697000, 2015:58697000, 2016:58697000, 2017:58697000,
-    2018:58697000 };
+    2013:58000000, 2014:58697000, 2015:63065000, 2016:63065000, 2017:63065000,
+    2018:63065000, 2019:63065000, 2020:63065000 };
 
 var botteam = "BRK"
 var curryear = ""
@@ -111,7 +110,7 @@ d3.json("team_data.json", function(terror, tdata) {
 	// Compute the extent of the data set in years.
 	var year0 = d3.min(d3.keys(tdata));
 	year1 = d3.max(d3.keys(tdata));
-	year = 2014;
+	year = 2015;
 
 	// The highest yearly payroll
 	var maxpay = d3.max(d3.values(tdata), function(year) {
@@ -172,7 +171,7 @@ d3.json("team_data.json", function(terror, tdata) {
     	    .attr("transform", function(team) { return "translate(" + topX(team) + ",0)"; });
 
 	currTeamCon.selectAll("rect")
-    	    .data(function(team) { return [tdata[2014][team]]; })
+    	    .data(function(team) { return [tdata[2015][team]]; })
     	    .enter().append("rect")
     	    .attr("fill-opacity", 0)
     	    .attr("x", -topBarWidth / 2)
@@ -261,14 +260,14 @@ d3.json("team_data.json", function(terror, tdata) {
     	    if (!(year in tdata)) return;
     	    yeartext.text(format_year(year));
 
-    	    if(year <= 2014) {
+    	    if(year <= 2015) {
 		topX.domain(allteams.sort(function(a, b) {
 		    return tdata[year][a]['payroll'] - tdata[year][b]['payroll'];
 		}));
     		var currfillop = 0;
     	    } else { 
 		topX.domain(allteams.sort(function(a, b) {
-		    return tdata[2014][a]['payroll'] - tdata[2014][b]['payroll'];
+		    return tdata[2015][a]['payroll'] - tdata[2015][b]['payroll'];
 		}));
     		var currfillop = 0.4;
     	    }
