@@ -1,22 +1,13 @@
 # jekyll config file
 #
 
+exclude: ["README.md"]
 permalink: /:year/:month/:day/:title 
+production_url : http://mrphilroth.com
 
-exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
-auto: true
-pygments: true
-
-# Themes are encouraged to use these universal variables 
-# so be sure to set them if your theme uses them.
-#
 title : phil roth
 author :
   name : Phil Roth
   email : mr.phil.roth@gmail.com
   github : mrphilroth
   twitter : mrphilroth
-
-production_url : http://mrphilroth.com
-
-
