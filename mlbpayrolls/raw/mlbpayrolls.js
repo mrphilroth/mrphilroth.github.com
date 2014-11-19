@@ -1,6 +1,6 @@
 // Top SVG
 var topMargin = {top: 20, right: 40, bottom: 30, left: 20},
-topWidth = 800 - topMargin.left - topMargin.right,
+topWidth = 900 - topMargin.left - topMargin.right,
 topHeight = 250 - topMargin.top - topMargin.bottom,
 topBarWidth = Math.floor(topWidth / 30) - 1,
 titleHeight = 65 - topMargin.top - topMargin.bottom;
@@ -256,7 +256,7 @@ d3.json("team_data.json", function(terror, tdata) {
 	}
 
 	var botMargin = {top: 40, right: 40, bottom: 50, left: 20},
-	botWidth = 800 - botMargin.left - botMargin.right,
+	botWidth = 900 - botMargin.left - botMargin.right,
 	botHeight = 420 - botMargin.top - botMargin.bottom;
 
 	var posdict = {0:'NA', 1:'P', 2:'C', 3:'1B', 4:'2B',
