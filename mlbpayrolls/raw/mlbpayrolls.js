@@ -108,9 +108,8 @@ d3.json("team_data.json", function(terror, tdata) {
 	// Compute the extent of the data set in years.
 	var year0 = d3.min(d3.keys(tdata));
 	year1 = d3.max(d3.keys(tdata));
-	year = 2014;
+	year = 2015;
 
-	// The highest yearly payroll (Congrats 2014 Dodgers!)
 	var maxpay = d3.max(d3.values(tdata), function(year) {
     	    return d3.max(d3.values(year), function(teamnode) {
     		return teamnode['payroll'];
@@ -221,14 +220,14 @@ d3.json("team_data.json", function(terror, tdata) {
     	    if (!(year in tdata)) return;
     	    yeartext.text(year);
 
-    	    if(year <= 2014) {
+    	    if(year <= 2015) {
     		topX.domain(allteams.sort(function(a, b) {
     		    return tdata[year][a]['payroll'] - tdata[year][b]['payroll'];
     		}));
     		var currfillop = 0;
     	    } else { 
     		topX.domain(allteams.sort(function(a, b) {
-    		    return tdata[2014][a]['payroll'] - tdata[2014][b]['payroll'];
+    		    return tdata[2015][a]['payroll'] - tdata[2015][b]['payroll'];
     		}));
     		var currfillop = 0.4;
     	    }
