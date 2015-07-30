@@ -2,7 +2,7 @@
 #
 
 exclude: ["README.md"]
-permalink: /:year/:month/:day/:title 
+permalink: /:year/:month/:day/:title
 production_url : http://mrphilroth.com
 
 title : phil roth
