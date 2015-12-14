@@ -95,7 +95,7 @@ var teamname = {
 var poscolor = d3.scale.category10()
     .domain([7, 8, 3, 1, 4, 5, 9, 0, 2, 6])
 
-var botteam = "LAD"
+var botteam = "NYY"
 var currplayer = ""
 var currposition = ""
 var curryear = ""
@@ -108,7 +108,7 @@ d3.json("team_data.json", function(terror, tdata) {
 	// Compute the extent of the data set in years.
 	var year0 = d3.min(d3.keys(tdata));
 	year1 = d3.max(d3.keys(tdata));
-	year = 2015;
+	year = 2016;
 
 	var maxpay = d3.max(d3.values(tdata), function(year) {
     	    return d3.max(d3.values(year), function(teamnode) {
@@ -220,14 +220,14 @@ d3.json("team_data.json", function(terror, tdata) {
     	    if (!(year in tdata)) return;
     	    yeartext.text(year);
 
-    	    if(year <= 2015) {
+    	    if(year <= 2016) {
     		topX.domain(allteams.sort(function(a, b) {
     		    return tdata[year][a]['payroll'] - tdata[year][b]['payroll'];
     		}));
     		var currfillop = 0;
     	    } else { 
     		topX.domain(allteams.sort(function(a, b) {
-    		    return tdata[2015][a]['payroll'] - tdata[2015][b]['payroll'];
+    		    return tdata[2016][a]['payroll'] - tdata[2016][b]['payroll'];
     		}));
     		var currfillop = 0.4;
     	    }
