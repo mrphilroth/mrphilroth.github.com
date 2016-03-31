@@ -95,7 +95,7 @@ var teamname = {
 var poscolor = d3.scale.category10()
     .domain([7, 8, 3, 1, 4, 5, 9, 0, 2, 6])
 
-var botteam = "NYY"
+var botteam = "LAD"
 var currplayer = ""
 var currposition = ""
 var curryear = ""
