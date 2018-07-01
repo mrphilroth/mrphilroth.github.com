@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <feed xmlns="http://www.w3.org/2005/Atom"><title>phil roth</title><link href="http://mrphilroth.com/" rel="alternate"></link><link href="http://mrphilroth.com/feeds/all.atom.xml" rel="self"></link><id>http://mrphilroth.com/</id><updated>2018-07-01T19:28:54Z</updated></feed>
+=======
+<feed xmlns="http://www.w3.org/2005/Atom"><title>phil roth</title><link href="http://mrphilroth.com/" rel="alternate"></link><link href="http://mrphilroth.com/feeds/all.atom.xml" rel="self"></link><id>http://mrphilroth.com/</id><updated>2018-07-01T19:20:44Z</updated></feed>
+>>>>>>> c885b0dfe1f456d0a6f70bc8754ed2fdd62698af
