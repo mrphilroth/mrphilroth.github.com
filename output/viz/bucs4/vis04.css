@@ -1,0 +1,77 @@
+.headerdiv, .filterdiv, .statdiv {
+    text-align:center;
+}
+
+.headertext {
+    font-size: 34px;
+    text-align: center;
+    font-weight: normal;
+    font-family: Arial, sans-serif;
+}
+
+.legendtext {
+    font-size: 15px;
+    font-weight: normal;
+    font-family: Arial, sans-serif;
+}
+
+.statbuttondiv {
+    margin: 0px 0px 0px 10px;
+}
+
+.textareap {
+    margin: 0px 0px 0px 50px;
+    height: 80px;
+    width: 780px;
+    font-size: 16px;
+    text-align: left;
+    font-family: Arial, sans-serif;
+}
+
+.circleclass {
+    stroke: #000000;
+    stroke-width: 1.5;
+}
+
+.circleclass-highlight {
+    stroke: #A71930;
+    stroke-width: 6;
+}
+
+.statbutton {
+    width: 120px;
+}
+
+.selbutton {
+    float: left;
+    display: inline;
+    overflow: hidden;
+    height: 36px;
+    list-style-type: none;
+    padding: 8px 5px;
+    background: #A71930;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    font-size: 13px;
+    font-weight: normal;
+    border-right: solid 2px white;
+    border-left: solid 2px white;
+    border-top: solid 2px white;
+    border-bottom: solid 2px white;
+}
+
+.statbutton-highlight {
+    border-right: solid 2px gray;
+    border-left: solid 2px gray;
+    border-top: solid 2px gray;
+    border-bottom: solid 2px gray;
+}
+
+.statbutton-selected {
+    background: #841527;
+    border-right: solid 2px black;
+    border-left: solid 2px black;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+}

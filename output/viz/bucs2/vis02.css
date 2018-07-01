@@ -1,0 +1,92 @@
+.headerdiv {
+    text-align:center;
+}
+
+.headertext {
+    font-size: 34px;
+    text-align: center;
+    font-weight: normal;
+    font-family: Arial, sans-serif;
+}
+
+.legendtext {
+    font-size: 15px;
+    font-weight: normal;
+    font-family: Arial, sans-serif;
+}
+
+.legendheader {
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+.yeartext {
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+
+.textareap {
+    margin: 0px 0px 0px 55px;
+    height: 150px;
+    width: 720px;
+    font-size: 16px;
+    text-align: left;
+    font-family: Arial, sans-serif;
+}
+
+.xlabel, .ylabel {
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+.tick text {
+    font-size: 13px;
+    font-family: Arial, sans-serif;
+}
+
+.axis path, .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.statbuttondiv {
+    margin: 0px 0px 0px 55px;
+}
+
+.statbutton {
+    float: left;
+    display: inline;
+    overflow: hidden;
+    height: 36px;
+    width: 180px;
+    list-style-type: none;
+    padding: 8px 5px;
+    background: #A71930;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    font-size: 13px;
+    font-weight: normal;
+    border-right: solid 2px white;
+    border-left: solid 2px white;
+    border-top: solid 2px white;
+    border-bottom: solid 2px white;
+}
+
+.statbutton-highlight {
+    border-right: solid 2px gray;
+    border-left: solid 2px gray;
+    border-top: solid 2px gray;
+    border-bottom: solid 2px gray;
+}
+
+.statbutton-selected {
+    background: #841527;
+    border-right: solid 2px black;
+    border-left: solid 2px black;
+    border-top: solid 2px black;
+    border-bottom: solid 2px black;
+}
