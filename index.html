@@ -1,44 +1,13 @@
----
-layout: default
-title: phil roth
----
+<!doctype html>
+<html lang=en>
 
-<div id="home">
-  <h1>Blog Posts</h1>
+<head>
+  <meta charset=utf-8>
+  <title>mrphilroth</title>
+</head>
 
+<body>
+  <p>mrphilroth</p>
+</body>
 
-  <ul class="posts">
-    <li><span>12 Apr 2016</span> &raquo; <a href="/2016/04/12/introducing-nba-rotations">Introducing NBA Rotations</a></li>
-    <li><span>21 Jul 2015</span> &raquo; <a href="https://www.endgame.com/blog/examining-malware-python">Examining Malware with Python</a></li>
-    <li><span>13 Nov 2014</span> &raquo; <a href="https://www.endgame.com/blog/challenges-data-driven-security">Challenges in Data Driven Security</a></li>
-    <li><span>22 Jul 2014</span> &raquo; <a href="https://www.endgame.com/blog/building-models-time-series-analysis">Building Models for Time Series Analysis</a></li>
-    <li><span>17 Jul 2014</span> &raquo; <a href="https://www.endgame.com/blog/time-series-analysis-network-security">Time Series Analysis for Network Security</a></li>
-    {% for post in site.posts %}
-    {% if post.competition == nil %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endif %}
-    {% endfor %}
-  </ul>
-
-  <h1>Data Science Competitions</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-    {% if post.competition != nil %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endif %}
-    {% endfor %}
-  </ul>
-
-  <h1>Publications and Proceedings</h1>
-  <ul class="posts">
-    <li><span>09 Jul 2015</span> &raquo; <a href="http://www.slideshare.net/mrphilroth/examining-malware-with-python">SciPy Presentation: Examining Malware with Python</a>
-                                         <a href="https://www.youtube.com/watch?v=2gyAemhbxnE">(video)</a>
-    <li><span>10 Jul 2014</span> &raquo; <a href="http://www.slideshare.net/mrphilroth/scipy2014">SciPy Presentation: Time Series Analysis for Network Security</a>
-                                         <a href="https://www.youtube.com/watch?v=ZSM-tmbBZ5E">(video)</a>
-    <li><span>27 Jul 2012</span> &raquo; <a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=6351218&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D6351218">IGARSS Paper: Ionospheric Stripes in PALSAR data</a></li>
-    <li><span>25 Jul 2010</span> &raquo; <a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=5653180&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D5653180">IGARSS Paper: Simulating SAR through the Ionosphere</a></li>
-    <li><span>10 Feb 2010</span> &raquo; <a href="http://iopscience.iop.org/0004-637X/710/1/346">ApJ Paper: IceCube Search for Muon Neutrinos from GRBs</a></li>
-    <li><span>15 Jun 2009</span> &raquo; <a href="http://drum.lib.umd.edu/handle/1903/9578">PhD Thesis: IceCube Search for Muon Neutrinos from GRBs</a></li>
-  </ul>
-
-</div>
+</html>
