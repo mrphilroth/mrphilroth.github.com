@@ -13,7 +13,7 @@ I put together [NBA Rotations](http://nbarotations.info/) in order to explore ho
 
 [This site](http://mlbpayrolls.info/) was my first attempt to use [D3.js](https://d3js.org/) to show anything at all. It got a lot of attention from places like [Fangraphs](https://www.fangraphs.com/blogs/link-visualizing-the-changes-in-mlb-payrolls/) and [Deadspin](https://deadspin.com/this-interactive-graphic-on-mlb-payrolls-is-amazing-1184880875). The last update was in 2016. Perhaps at some point I'll redesign the graphic and set this page up for automatic updates.
 
-# mlbpayrolls
+# nbapayrolls
 
 <center><a href="../nbapayrolls"><img src=../images/nbapayrolls.png></a></center>
 
