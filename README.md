@@ -1,4 +1,16 @@
 mrphilroth.github.com
 =====================
 
-Repo for mrphilroth.com
+Pelican backing for mrphilroth.com
+
+# Develop
+
+```
+make devserver
+```
+
+# Publish
+
+```
+make github
+```
