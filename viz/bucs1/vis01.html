@@ -1,68 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Cumulative Defenseive Stats</title>
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="tipsy/javascripts/jquery.tipsy.js"></script>
-    <link href="tipsy/stylesheets/tipsy.css" rel="stylesheet" type="text/css" />
-  </head> 
- <body>
-    <style>
-      .tick text {
+
+<head>
+  <meta charset="utf-8">
+  <title>Cumulative Defenseive Stats</title>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="tipsy/javascripts/jquery.tipsy.js"></script>
+  <link href="tipsy/stylesheets/tipsy.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <style>
+    .tick text {
       font-family: Arial, sans-serif;
-      }
+    }
 
-      .axis path {
+    .axis path {
       fill: none;
-      }
+    }
 
-      .axis line {
+    .axis line {
       fill: none;
       stroke: #fff;
-      stroke-width : 1px;
-      
-      }
+      stroke-width: 1px;
 
-      .buttondiv {
+    }
+
+    .buttondiv {
       margin: 0px 0px 0px 88px;
-      }
+    }
 
-      .headerdiv {
-      text-align:center;
-      width:95%;
-      }
+    .headerdiv {
+      text-align: center;
+      width: 95%;
+    }
 
-      .headertext {
+    .headertext {
       font-size: 34px;
       text-align: center;
       font-weight: normal;
       font-family: Arial, sans-serif;
-      }
+    }
 
-      .legendtext {
+    .legendtext {
       font-size: 16px;
       font-weight: normal;
       font-family: Arial, sans-serif;
-      }
+    }
 
-      .textareap {
+    .textareap {
       margin: 0px 40px 0px 70px;
       height: 66px;
       width: 780px;
       font-size: 18px;
       text-align: left;
       font-family: Arial, sans-serif;
-      }
+    }
 
-      .xlabel {
+    .xlabel {
       font-size: 18px;
       text-anchor: end;
       font-family: Arial, sans-serif;
-      }
+    }
 
-      .statbutton {
+    .statbutton {
       float: left;
       display: inline;
       overflow: hidden;
@@ -79,9 +81,9 @@
       border-left: solid 2px white;
       border-top: solid 2px white;
       border-bottom: solid 2px white;
-      }
+    }
 
-      .statbutton-highlight {
+    .statbutton-highlight {
       float: left;
       display: inline;
       overflow: hidden;
@@ -98,9 +100,9 @@
       border-left: solid 2px gray;
       border-top: solid 2px gray;
       border-bottom: solid 2px gray;
-      }
+    }
 
-      .statbutton-selected {
+    .statbutton-selected {
       float: left;
       display: inline;
       overflow: hidden;
@@ -117,9 +119,9 @@
       border-left: solid 2px black;
       border-top: solid 2px black;
       border-bottom: solid 2px black;
-      }
+    }
+  </style>
+  <script src="vis01.js"></script>
+</body>
 
-    </style>
-    <script src="vis01.js"></script>
- </body>
 </html>
