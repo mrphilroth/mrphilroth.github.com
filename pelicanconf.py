@@ -18,5 +18,7 @@ EMAIL_ADDRESS = "mr.phil.roth@gmail.com"
 GITHUB_ADDRESS = "https://github.com/mrphilroth"
 TWITTER_ADDRESS = "https://twitter.com/mrphilroth"
 
+STATIC_PATHS = ["images", "pdfs"]
+
 # Uncomment for devserver
-# RELATIVE_URLS = True
+RELATIVE_URLS = True

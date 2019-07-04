@@ -3,6 +3,14 @@ Slug: things
 
 # Talks
 
+NeurIPS Workshop on Security in Machine Learning 2018<br>
+EMBER: An Open Dataset for Training Static PE Malware Machine Learning Models<br>
+[(paper)](https://arxiv.org/abs/1804.04637) [(poster)](../pdfs/neurips_poster.pdf)<br>
+
+DataEngConf NYC 2018<br>
+Engineering Lessons Learned by Scientists<br>
+[(slides)](https://docs.google.com/presentation/d/165MZc6TA-8_LJT_I3PPgB_iqnWFAEVzka21VnmlucfI/) [(video)](https://www.youtube.com/watch?v=Oa1t1GFVwxM)<br>
+
 BSidesSF 2018 & BSidesCharm 2018<br>
 EMBER: An Open Source Malware Classifier and Dataset<br>
 [(code)](https://github.com/endgameinc/ember) [(slides)](https://www.slideshare.net/mrphilroth/ember-95414223) [(video)](http://www.irongeek.com/i.php?page=videos/bsidescharm2018/track-2-02-an-open-source-malware-classifier-and-dataset-phil-roth)<br>
