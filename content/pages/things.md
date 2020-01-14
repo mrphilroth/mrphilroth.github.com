@@ -3,6 +3,10 @@ Slug: things
 
 # Talks
 
+Camlis 2019<br>
+EMBER Improvements<br>
+[(slides)](https://docs.google.com/presentation/d/1A13tsUkgWeujTy9SD-vDFfQp9fnIqbSE_tCihNPlArQ/) [(code)](https://github.com/mrphilroth/camlis-ember-improvements) [(video)](https://www.youtube.com/watch?v=MsZmnUO5lkY)
+
 NeurIPS Workshop on Security in Machine Learning 2018<br>
 EMBER: An Open Dataset for Training Static PE Malware Machine Learning Models<br>
 [(paper)](https://arxiv.org/abs/1804.04637) [(poster)](../pdfs/neurips_poster.pdf)<br>
