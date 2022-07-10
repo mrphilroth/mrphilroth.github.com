@@ -8,6 +8,7 @@ authors = ["Phil Roth <mr.phil.roth@gmail.com>"]
 python = "^3.10"
 pelican = "^4.7.2"
 Markdown = "^3.3.7"
+ghp-import = "^2.1.0"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^4.0.1"

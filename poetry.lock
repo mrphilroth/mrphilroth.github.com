@@ -90,6 +90,20 @@ pycodestyle = ">=2.8.0,<2.9.0"
 pyflakes = ">=2.4.0,<2.5.0"
 
 [[package]]
+name = "ghp-import"
+version = "2.1.0"
+description = "Copy your docs directly to the gh-pages branch."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+python-dateutil = ">=2.8.1"
+
+[package.extras]
+dev = ["twine", "markdown", "flake8", "wheel"]
+
+[[package]]
 name = "jinja2"
 version = "3.1.2"
 description = "A very fast and expressive template engine."
@@ -265,7 +279,7 @@ python-versions = ">=3.5"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "681790d67119c9a94bb35f76c653eb6300e2b7737d71eb651b39528bbd1b44f9"
+content-hash = "1668aeccc76a8b474b1146d4a1075190bbf898f75208ce06fb4a9904c9072f95"
 
 [metadata.files]
 black = []
@@ -276,6 +290,7 @@ commonmark = []
 docutils = []
 feedgenerator = []
 flake8 = []
+ghp-import = []
 jinja2 = []
 markdown = []
 markupsafe = []
